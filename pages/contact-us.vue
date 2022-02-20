@@ -65,9 +65,9 @@
                 </div>
 
                 <div class="card-body p-0 mt-4">
-                  <h5 class="title fw-bold">Location</h5>
-                  <p class="text-muted">C/54 Northwest Freeway, Suite 558, <br>Houston, USA 485</p>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#watchvideomodal" class="video-play-icon h6 link">View on Google map</a>
+                  <h5 class="title fw-bold">办公位置</h5>
+                  <p class="text-muted">通协路269号2号楼2层</p>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#watchvideomodal" class="video-play-icon h6 link">在高德上查看</a>
                 </div>
               </div>
             </div><!--end col-->
