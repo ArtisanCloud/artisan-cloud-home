@@ -5,13 +5,12 @@
       <!-- Hero Start -->
       <section class="bg-half-130 d-table w-100 overflow-hidden" style="background: url('/images/bg/bg-index.png');">
         <div class="container">
-          <div class="row mt-5 align-items-center pt-5">
+          <div class="row align-items-center">
             <div class="col-lg-6 col-md-7">
               <div class="heading-title">
-                <h1 class="heading fw-bold mb-3">Build clean apps <br> with your web skills</h1>
-                <p class="para-desc text-muted">Explore and learn more about everything from machine learning and global
-                  payments to scaling your team.</p>
-                <div class="watch-video mt-4 pt-2">
+                <h1 class="heading fw-bold mb-3"> 秉持元匠精神 <br>打造数字产品</h1>
+                <p class="para-desc text-muted">企业数字化服务商</p>
+                <div v-if="false" class="watch-video mt-4 pt-2">
                   <a href="javascript:void(0)" class="btn btn-primary mb-2">Get Started</a>
                   <a href="#" data-bs-toggle="modal" data-bs-target="#watchvideomodal"
                      class="video-play-icon watch text-dark mb-2 ms-2"><i
@@ -31,7 +30,7 @@
       </section><!--end section-->
       <!-- Hero End -->
 
-      <div class="container py-4">
+      <div v-if="false" class="container py-4">
         <div class="row justify-content-center">
           <div class="col-lg-2 col-md-2 col-6 text-center py-4 py-md-0">
             <img src="/images/client/amazon.svg" class="avatar avatar-client" alt="">
@@ -60,7 +59,7 @@
       </div><!--end container-->
 
       <!-- Start -->
-      <section class="section">
+      <section v-if="false" class="section">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12">
@@ -338,7 +337,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 
 export default Vue.extend({

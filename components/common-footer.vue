@@ -2,7 +2,7 @@
   <!-- Start -->
   <footer class="bg-footer">
     <div class="container">
-      <div class="row">
+      <div  v-if="false" class="row">
         <div class="col-lg-3 mb-0 mb-md-4 pb-0 pb-md-2">
           <a href="#" class="logo-footer">
             <img src="/images/logo-footer.png" height="48" alt="">
@@ -62,7 +62,7 @@
 
     <div class="container mt-5">
       <div class="pt-4 footer-bar">
-        <div class="row align-items-center">
+        <div v-if="false" class="row align-items-center">
           <div class="col-sm-6">
             <div class="text-sm-start text-center">
               <ul class="list-unstyled social-icon social mb-0 mt-4 mt-sm-0">
@@ -86,7 +86,8 @@
 
         <div class="row justify-content-center mt-4">
           <div class="col-12 text-center">
-            <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Landflow. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="https://shreethemes.in" target="_blank" class="text-reset">Shreethemes-studio</a>.</p>
+            <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> 2021 ArtisanCloud.</p>
+            <p class="mb-0"><a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">沪ICP备2021029387号-1</a></p>
           </div>
         </div>
       </div>

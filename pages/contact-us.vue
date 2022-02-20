@@ -9,7 +9,7 @@
             <div class="col-12">
               <div class="heading-title text-center">
                 <h2 class="text-white title-dark title mb-3">联系我们</h2>
-                <p class="para-desc mx-auto text-white-50">Explore and learn more about everything from machine learning and global payments to  scaling your team.</p>
+                <p class="para-desc mx-auto text-white-50">欢迎通过一下方式，与我们取得联系.</p>
               </div>
             </div><!--end col-->
           </div><!--end row-->
@@ -37,9 +37,9 @@
                 </div>
 
                 <div class="card-body p-0 mt-4">
-                  <h5 class="title fw-bold">Phone</h5>
-                  <p class="text-muted">Start working with Landflow that can provide everything</p>
-                  <a href="tel:+152534-468-854" class="link">+152 534-468-854</a>
+                  <h5 class="title fw-bold">业务联系方式</h5>
+                  <p class="text-muted">点击发送邮件</p>
+                  <a href="mailto:matrix-x@artisan-cloud.com" class="link">matrix-x@artisan-cloud.com</a>
                 </div>
               </div>
             </div><!--end col-->
@@ -51,9 +51,9 @@
                 </div>
 
                 <div class="card-body p-0 mt-4">
-                  <h5 class="title fw-bold">Email</h5>
-                  <p class="text-muted">Start working with Landflow that can provide everything</p>
-                  <a href="mailto:contact@example.com" class="link">contact@example.com</a>
+                  <h5 class="title fw-bold">技术联系方式</h5>
+                  <p class="text-muted">点击发送邮件</p>
+                  <a href="mailto:walle@artisan-cloud.com" class="link">walle@artisan-cloud.com</a>
                 </div>
               </div>
             </div><!--end col-->

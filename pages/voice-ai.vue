@@ -12,9 +12,9 @@
                   <div class="col-12">
                     <div class="title-heading text-center mt-4">
                       <h1 class="display-4 text-white title-dark fw-bold mb-3">语音AI识别</h1>
-                      <p class="para-desc text-white-50 mx-auto para-dark">Explore and learn more about everything from machine learning and global payments to  scaling your team.</p>
-                      <div class="mt-4">
-                        <a href="javascript:void(0)" class="btn btn-primary">About Us</a>
+                      <p class="para-desc text-white-50 mx-auto para-dark">尽情期待</p>
+                      <div v-if="false" class="mt-4">
+                        <a href="javascript:void(0)" class="btn btn-primary"></a>
                       </div>
                     </div>
                   </div><!--end col-->
@@ -36,7 +36,7 @@
     <!-- Hero End -->
 
     <!-- Start -->
-    <section class="section">
+    <section v-if="false" class="section">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6">
@@ -341,7 +341,7 @@
     </section><!--end section-->
     <!-- End -->
 
-    <section class="section bg-light">
+    <section v-if="false" class="section bg-light">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -547,7 +547,7 @@
       </div><!--end container-->
     </section><!--end section-->
 
-    <div class="container-fluid px-0">
+    <div v-if="false" class="container-fluid px-0">
       <div class="py-5 bg-footer">
         <div class="container">
           <div class="row align-items-center">
