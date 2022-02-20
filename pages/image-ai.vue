@@ -1,5 +1,5 @@
 <template>
-  <layout-normal is-nav-light is-logo-light>
+  <layout-normal is-nav-light>
     <!-- Hero Start -->
     <section class="home-slider position-relative">
       <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel">
