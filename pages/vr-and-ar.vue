@@ -1,6 +1,6 @@
 <template>
   <div>
-    <common-header is-nav-light />
+    <common-header is-nav-light is-logo-light/>
     <div>
       <!-- Hero Start -->
       <section class="home-slider position-relative">

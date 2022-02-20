@@ -1,6 +1,6 @@
 <template>
   <div>
-    <common-header is-nav-light />
+    <common-header is-nav-light is-logo-light/>
     <div>
       <!-- Home Start -->
       <section class="bg-half-170 d-table w-100" style="background: url('/images/bg/bg-about.jpg') center center">

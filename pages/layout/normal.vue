@@ -1,6 +1,6 @@
 <template>
   <div>
-    <common-header :is-nav-light="isNavLight" />
+    <common-header :is-nav-light="isNavLight" :is-logo-light="isLogoLight" />
     <slot />
     <common-footer />
   </div>
@@ -13,7 +13,11 @@ export default {
     isNavLight: {
       type: Boolean,
       default: false,
-    }
+    },
+    isLogoLight: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
