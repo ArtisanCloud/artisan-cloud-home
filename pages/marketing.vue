@@ -1,5 +1,5 @@
 <template>
-  <layout-normal is-nav-light>
+  <layout-normal is-nav-light is-logo-light>
     <!-- Hero Start -->
     <section class="bg-home bg-primary d-flex align-items-center" style="background: url('/images/seo/bg.png') center center; height: auto;" id="home">
       <div class="container">

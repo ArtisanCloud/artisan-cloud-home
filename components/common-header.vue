@@ -4,9 +4,13 @@
     <div class="container">
       <!-- Logo container-->
       <div>
-        <a class="logo" href="index.html">
-          <img src="https://powerwechat.artisan-cloud.com/images/at-logo-2-slim.svg" height="22" class="logo-light-mode" alt="">
-          <img src="https://powerwechat.artisan-cloud.com/images/at-logo-2-slim-light.svg" height="22" class="logo-dark-mode" alt="">
+        <a class="logo" href="/">
+          <span v-if="isLogoLight" class="logo-light-mode">
+              <img src="/images/logo-dark.png" class="l-dark" height="22" alt="">
+              <img src="/images/logo-light.png" class="l-light" height="22" alt="">
+          </span>
+          <img v-else src="/images/logo-dark.png" height="22" class="logo-light-mode" alt="logo">
+          <img src="/images/logo-light.png" height="22" class="logo-dark-mode" alt="logo">
         </a>
       </div>
       <div v-if="isNotContactUS" class="buy-button">
@@ -83,7 +87,11 @@ export default {
     isNavLight: {
       type: Boolean,
       default: false,
-    }
+    },
+    isLogoLight: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     isNotContactUS() {

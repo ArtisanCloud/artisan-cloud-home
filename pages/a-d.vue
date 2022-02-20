@@ -1,5 +1,5 @@
 <template>
-  <layout-normal is-nav-light>
+  <layout-normal is-nav-light is-logo-light>
     <!-- Start -->
     <section class="bg-half-170 d-table w-100 bg-primary" style="background: url('/images/bg/bg-broker.png') bottom;">
       <div class="container">
