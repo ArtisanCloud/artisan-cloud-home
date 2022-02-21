@@ -9,7 +9,7 @@
               <h6 class="text-white-50">智能虚拟业务代表，24小时不间断服务</h6>
               <h2 class="heading text-white title-dark mb-3">智能品宣方案</h2>
               <div class="mt-4">
-                <a href="javascript:void(0)" class="btn btn-icon btn-pills btn-lg btn-light"><i data-feather="arrow-down" class="icons"></i></a>
+                <a href="javascript:void(0)" class="btn btn-icon btn-pills btn-lg btn-light" @click="handlePlayVideo"><i data-feather="play" class="icons"></i></a>
               </div>
             </div>
           </div><!--end col-->
@@ -22,20 +22,38 @@
         <div class="row justify-content-center bg-white p-5 pt-3 pb-2">
           <img src="/images/branding.jpg" >
         </div><!--end row-->
-      
     </section><!--end section-->
 
   </layout-normal>
 
-    
+
 
 </template>
 
 <script>
 import LayoutNormal from "~/pages/layout/normal";
+import Swal from 'sweetalert2';
 export default {
   name: "branding",
-  components: {LayoutNormal}
+  components: {LayoutNormal},
+  methods: {
+    handlePlayVideo() {
+      Swal.fire({
+        title: '',
+        icon: '',
+        html:
+          '<video src="/videos/branding-demo.mp4" style="width: 640px; max-width: 100%;" controls></video>',
+        showConfirmButton: false,
+        showCancelButton: true,
+        focusConfirm: false,
+        cancelButtonText:
+          '<i class="fa fa-thumbs-up"></i> Close',
+      });
+    }
+  },
+  mounted() {
+
+  }
 }
 </script>
 

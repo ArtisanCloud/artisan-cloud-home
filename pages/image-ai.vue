@@ -1,7 +1,7 @@
 <template>
   <layout-normal is-nav-light>
     <!-- Hero Start -->
-    <section class="home-slider position-relative">
+    <section class="home-slider position-relative" ref="testRef">
       <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="3000">
@@ -68,7 +68,9 @@
                 <div class="swiper-slide">
                   <div class="card border-0 work-container m-3 work-danger work-border overflow-hidden rounded-md">
                     <div class="card-body p-0">
-                      <a href="javascript:void(0)"><img src="/images/ai-image/colorize.png" class="img-fluid work-image" alt=""></a>
+                      <no-ssr>
+                        <vue-compare-image class="image-compare" leftImage="/images/ai-image/children-bw.png" rightImage="/images/ai-image/children-color.png"/>
+                      </no-ssr>
                       <div class="content p-4">
                         <h5 class="mb-0"><a href="javascript:void(0)" class="text-dark title">黑白照上色</a></h5>
                         <h6 class="text-muted tag mb-0">艺术</h6>
@@ -77,9 +79,12 @@
                   </div>
                 </div>
 
-                <div class="swiper-slide">
+                <div class="swiper-slide" v-if="false">
                   <div class="card border-0 work-container m-3 work-info work-border overflow-hidden rounded-md">
                     <div class="card-body p-0">
+                      <no-ssr>
+                        <vue-compare-image class="image-compare" leftImage="/images/ai-image/children-bw.png" rightImage="/images/ai-image/children-color.png"/>
+                      </no-ssr>
                       <a href="javascript:void(0)"><img src="/images/ai-image/key.png" class="img-fluid work-image" alt=""></a>
                       <div class="content p-4">
                         <h5 class="mb-0"><a href="javascript:void(0)" class="text-dark title">AI扣像</a></h5>
@@ -179,10 +184,19 @@
 import LayoutNormal from "~/pages/layout/normal";
 export default {
   name: "ai-image",
-  components: {LayoutNormal}
+  components: {
+    LayoutNormal,
+    VueCompareImage: () => import("vue-compare-image")
+  },
+  mounted() {
+    console.log('mount...', this.$refs.testRef);
+  },
 }
 </script>
 
 <style scoped>
-
+.image-compare {
+  width: 800px !important;
+  max-width: 100% !important;
+}
 </style>

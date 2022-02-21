@@ -60,7 +60,7 @@
       </div><!--end row-->
     </div><!--end container-->
 
-    <div class="container mt-5">
+    <div class="container">
       <div class="pt-4 footer-bar">
         <div v-if="false" class="row align-items-center">
           <div class="col-sm-6">
@@ -87,7 +87,7 @@
         <div class="row justify-content-center mt-4">
           <div class="col-12 text-center">
             <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> 2021 ArtisanCloud.</p>
-            <p class="mb-0"><a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">沪ICP备2021029387号-1</a></p>
+            <p class="mb-0"><a class="beian-link" href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">沪ICP备2021029387号-1</a></p>
           </div>
         </div>
       </div>
@@ -113,5 +113,13 @@ export default {
 </script>
 
 <style scoped>
+.bg-footer {
+  padding: 0;
+  padding-bottom: 25px;
 
+  font-size: 12px;
+}
+.beian-link {
+  color: #777;
+}
 </style>
