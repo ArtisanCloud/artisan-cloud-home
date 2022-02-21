@@ -68,9 +68,11 @@
                 <div class="swiper-slide">
                   <div class="card border-0 work-container m-3 work-danger work-border overflow-hidden rounded-md">
                     <div class="card-body p-0">
-                      <no-ssr>
+                      <img src="/images/ai-image/children-bw.png" style="display: none"/>
+                      <img src="/images/ai-image/children-color.png" style="display: none"/>
+                      <client-only placeholder="">
                         <vue-compare-image class="image-compare" leftImage="/images/ai-image/children-bw.png" rightImage="/images/ai-image/children-color.png"/>
-                      </no-ssr>
+                      </client-only>
                       <div class="content p-4">
                         <h5 class="mb-0"><a href="javascript:void(0)" class="text-dark title">黑白照上色</a></h5>
                         <h6 class="text-muted tag mb-0">艺术</h6>

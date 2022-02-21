@@ -1,4 +1,10 @@
 export default {
+  router: {
+    base: '/'
+  },
+  generate: {
+    subFolders: true
+  },
   server: {
     port: 3002, // default: 3000
     host: '0.0.0.0',

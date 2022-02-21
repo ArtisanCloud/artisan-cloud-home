@@ -14,7 +14,7 @@
         </a>
       </div>
       <div v-if="isNotContactUS" class="buy-button">
-        <a href="/contact-us" class="btn btn-primary">联系我们</a>
+        <a href="/contact-us/" class="btn btn-primary">联系我们</a>
       </div><!--end login button-->
       <!-- End Logo container-->
       <div class="menu-extras">
@@ -39,9 +39,9 @@
             <ul class="submenu megamenu">
               <li>
                 <ul>
-                  <li><a href="/branding" class="sub-menu-item">智能品宣方案</a></li>
-                  <li><a href="/image-ai" class="sub-menu-item">图像AI技术</a></li>
-                  <li><a href="/voice-ai" class="sub-menu-item">语音AI识别</a></li>
+                  <li><a href="/branding/" class="sub-menu-item">智能品宣方案</a></li>
+                  <li><a href="/image-ai/" class="sub-menu-item">图像AI技术</a></li>
+                  <li><a href="/voice-ai/" class="sub-menu-item">语音AI识别</a></li>
                 </ul>
               </li>
             </ul>
@@ -50,8 +50,8 @@
             <ul class="submenu megamenu">
               <li>
                 <ul>
-                  <li><a href="/vtuber" class="sub-menu-item">虚拟主播方案</a></li>
-                  <li><a href="/vr-and-ar" class="sub-menu-item">VR & AR</a></li>
+                  <li><a href="/vtuber/" class="sub-menu-item">虚拟主播方案</a></li>
+                  <li><a href="/vr-and-ar/" class="sub-menu-item">VR & AR</a></li>
                 </ul>
               </li>
             </ul>
@@ -60,15 +60,15 @@
             <ul class="submenu megamenu">
               <li>
                 <ul>
-                  <li><a href="/marketing#home" class="sub-menu-item">数字营销活动</a></li>
-                  <li><a href="/marketing#b2" class="sub-menu-item">企业福利代发放</a></li>
-                  <li><a href="/a-d" class="sub-menu-item">微信广告</a></li>
+                  <li><a href="/marketing/#home" class="sub-menu-item">数字营销活动</a></li>
+                  <li><a href="/marketing/#b2" class="sub-menu-item">企业福利代发放</a></li>
+                  <li><a href="/a-d/" class="sub-menu-item">微信广告</a></li>
                   <li v-if="false"><a href="index-software.html" class="sub-menu-item">客户关系管理CRM</a></li>
                 </ul>
               </li>
             </ul>
           </li>
-          <li><a href="about" class="sub-menu-item">关于我们</a></li>
+          <li><a href="/about/" class="sub-menu-item">关于我们</a></li>
         </ul><!--end navigation menu-->
 <!--        <div v-if="false" class="buy-menu-btn d-none">-->
 <!--          <a href="https://wrapbootstrap.com/theme/landflow-landing-template-dark-rtl-WB0SL3408?ref=shreethemesstudio" target="_blank" class="btn btn-primary">Buy Now</a>-->

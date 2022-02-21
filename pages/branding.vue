@@ -24,6 +24,8 @@
         </div><!--end row-->
     </section><!--end section-->
 
+    <video src="/videos/branding-demo.mp4" style="display: none;"/>
+
   </layout-normal>
 
 
@@ -38,6 +40,7 @@ export default {
   components: {LayoutNormal},
   methods: {
     handlePlayVideo() {
+      console.log('click play....');
       Swal.fire({
         title: '',
         icon: '',
