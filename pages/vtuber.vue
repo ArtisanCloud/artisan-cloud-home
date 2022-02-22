@@ -7,18 +7,18 @@
         <div class="row mt-5 align-items-center">
           <div class="col-md-6">
             <div class="heading-title">
-              <h4>Vtuber</h4>
-              <h4 class="display-3 fw-bold mb-4">虚拟人物主播</h4>
-              <p class="text-muted para-desc mb-0">Explore and learn more about everything from machine learning and global payments to  scaling your team.</p>
+              <h4>VTuber</h4>
+              <h4 class="display-3 fw-bold mb-4">虚拟主播方案</h4>
+              <p class="text-muted para-desc mb-0">品牌自创IP角色，手持元宇宙的门票</p>
 
               <div class="mt-4 align-items-center">
-                <a href="javascript:void(0)" class="btn btn-primary">View Portfolio</a>
+                <a href="javascript:void(0)" class="btn btn-primary">查看</a>
               </div>
             </div>
           </div><!--end col-->
 
           <div class="col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-            <img src="/images/freelancer.png" class="img-fluid" alt="">
+            <img src="/images/vtuber/preview-h.png" class="img-fluid" alt="">
           </div><!--end col-->
 
         </div><!--end row-->
@@ -39,7 +39,7 @@
         <div class="row align-items-center">
           <div class="col-lg-5 col-md-6 col-12">
             <div class="position-relative">
-              <img src="/images/freelancer.jpg" class="img-fluid rounded shadow-md" alt="">
+              <img src="/images/vtuber/aboutme.png" class="img-fluid rounded shadow-md" alt="">
               <div class="play-icon">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#watchvideomodal" class="play-btn video-play-icon">
                   <i class="mdi mdi-play text-primary rounded-circle bg-white shadow"></i>
@@ -52,31 +52,31 @@
             <div class="ms-lg-5">
               <div class="section-title">
                 <span class="badge rounded-pill bg-soft-primary h6">About Me</span>
-                <h4 class="title fw-bold mt-2 mb-4">Better Design <br> Better Experience</h4>
-                <p class="para-desc text-muted">Explore and learn more about everything from machine learning and global payments to  scaling your team.</p>
+                <h4 class="title fw-bold mt-2 mb-4">定制设计 <br> 2.5D 3D建模</h4>
+                <p class="para-desc text-muted">虚拟主播可以活跃在任何时间，空间上</p>
               </div>
 
               <div class="progress-box">
-                <h6 class="title text-muted">WordPress</h6>
+                <h6 class="title text-muted">降低成本</h6>
                 <div class="progress">
                   <div class="progress-bar position-relative bg-primary" style="width:84%;">
-                    <div class="progress-value d-block text-muted h6">84%</div>
+                    <div class="progress-value d-block text-muted h6"></div>
                   </div>
                 </div>
               </div><!--end process box-->
               <div class="progress-box mt-4">
-                <h6 class="title text-muted">Angular / JavaScript</h6>
+                <h6 class="title text-muted">灵活性强</h6>
                 <div class="progress">
-                  <div class="progress-bar position-relative bg-primary" style="width:79%;">
-                    <div class="progress-value d-block text-muted h6">79%</div>
+                  <div class="progress-bar position-relative bg-success" style="width:79%;">
+                    <div class="progress-value d-block text-muted h6"></div>
                   </div>
                 </div>
               </div><!--end process box-->
               <div class="progress-box mt-4">
-                <h6 class="title text-muted">HTML</h6>
+                <h6 class="title text-muted">多渠道覆盖</h6>
                 <div class="progress">
-                  <div class="progress-bar position-relative bg-primary" style="width:95%;">
-                    <div class="progress-value d-block text-muted h6">95%</div>
+                  <div class="progress-bar position-relative bg-warning" style="width:95%;">
+                    <div class="progress-value d-block text-muted h6"></div>
                   </div>
                 </div>
               </div><!--end process box-->
@@ -85,7 +85,7 @@
         </div><!--end row-->
       </div><!--end container-->
 
-      <div class="container mt-100 mt-60">
+      <div v-if="false" class="container mt-100 mt-60">
         <div class="row justify-content-center">
           <div class="col-12">
             <div class="section-title text-center mb-4 pb-2">
@@ -179,7 +179,7 @@
     <!-- End -->
 
     <!-- Start -->
-    <section class="section bg-light">
+    <section v-if="false" class="section bg-light">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -313,7 +313,7 @@
     <!-- End -->
 
     <!-- Start Counter -->
-    <section class="py-5 bg-primary" style="background: url('/images/bg/bg-lines-two.png') center center;">
+    <section v-if="false" class="py-5 bg-primary" style="background: url('/images/bg/bg-lines-two.png') center center;">
       <div class="container">
         <div class="row" id="counter">
           <div class="col-lg-3 col-6">
@@ -361,7 +361,7 @@
     <!-- End Counter -->
 
     <!-- Start Testi -->
-    <section class="section">
+    <section v-if="false" class="section">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12">

@@ -35,11 +35,11 @@
     </section><!--end section-->
     <!-- Hero End -->
 
-    <section class="section bg-light">
+    <section class="section bg-light" id="modelColorize">
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <div class="section-title mb-4 pb-2" id="modelColorize">
+            <div class="section-title mb-4 pb-2">
               <span class="badge rounded-pill bg-soft-primary h6">模型</span>
               <h4 class="title mt-2 mb-4">图像模型</h4>
               <p class="para-desc text-muted mb-0">当下流行的ai图像技术</p>
