@@ -14,9 +14,13 @@
                     <div class="col-12">
                       <div class="title-heading text-center mt-4">
                         <h1 class="display-4 text-white title-dark fw-bold mb-3">VR & AR</h1>
-                        <p class="para-desc text-white-50 mx-auto para-dark">Explore and learn more about everything from machine learning and global payments to  scaling your team.</p>
+                        <p class="para-desc text-white-50 mx-auto para-dark">探索虚拟世界的新玩法</p>
                         <div class="mt-4">
-                          <a href="javascript:void(0)" class="btn btn-primary">About Us</a>
+                          <a href="javascript:void(0)" class="btn btn-primary">添加企业微信</a>
+                        </div>
+                        <div class="mt-4">
+                          <img src="/images/contactus/contact-qr-matrix-x.a5ec6a09.png" class="img-fluid m-2" style="width: 20%" alt="">
+                          <img src="/images/contactus/contact-qr-walle.b970715f.png" class="img-fluid m-2" style="width: 20%" alt="">
                         </div>
                       </div>
                     </div><!--end col-->
@@ -24,7 +28,7 @@
                 </div><!--end container-->
               </div>
             </div>
-            <div class="carousel-item" data-bs-interval="3000">
+            <div v-if="false" class="carousel-item" data-bs-interval="3000">
               <div class="bg-home bg-animation-left d-flex align-items-center" style="background-image:url('/images/business/bg2.jpg')">
                 <div class="bg-overlay"></div>
                 <div class="container">
@@ -43,7 +47,7 @@
               </div>
             </div>
 
-            <div class="carousel-item" data-bs-interval="3000">
+            <div v-if="false" class="carousel-item" data-bs-interval="3000">
               <div class="bg-home bg-animation-left d-flex align-items-center" style="background-image:url('/images/business/bg3.jpg')">
                 <div class="bg-overlay"></div>
                 <div class="container">
@@ -75,7 +79,7 @@
       <!-- Hero End -->
 
       <!-- Start -->
-      <section class="section">
+      <section v-if="false" class="section">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-6">
@@ -380,7 +384,7 @@
       </section><!--end section-->
       <!-- End -->
 
-      <section class="section bg-light">
+      <section v-if="false" class="section bg-light">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -586,7 +590,7 @@
         </div><!--end container-->
       </section><!--end section-->
 
-      <div class="container-fluid px-0">
+      <div v-if="false" class="container-fluid px-0">
         <div class="py-5 bg-footer">
           <div class="container">
             <div class="row align-items-center">

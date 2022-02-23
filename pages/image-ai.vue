@@ -14,7 +14,7 @@
                       <h1 class="display-4 text-white title-dark fw-bold mb-3">图像AI技术</h1>
                       <p class="para-desc text-white-50 mx-auto para-dark">多种图像处理模型</p>
                       <div class="mt-4">
-                        <a href="#modelColorize" class="btn btn-primary">查看</a>
+                        <a href="image-ai/#modelColorize" class="btn btn-primary">查看</a>
                       </div>
                     </div>
                   </div><!--end col-->
@@ -56,7 +56,11 @@
                 <div class="swiper-slide">
                   <div class="card border-0 work-container m-3 work-primary work-border overflow-hidden rounded-md">
                     <div class="card-body p-0">
-                      <a href="javascript:void(0)"><img src="/images/ai-image/upresolution.png" class="img-fluid work-image" alt=""></a>
+                      <img src="/images/ai-image/upSample/cat.jpeg" style="display: none"/>
+                      <img src="/images/ai-image/upSample/cat-ai.png" style="display: none"/>
+                      <client-only placeholder="">
+                        <vue-compare-image class="image-compare" leftImage="/images/ai-image/upSample/cat.jpeg" rightImage="/images/ai-image/upSample/cat-ai.png"/>
+                      </client-only>
                       <div class="content p-4">
                         <h5 class="mb-0"><a href="javascript:void(0)" class="text-dark title">照片升清晰度</a></h5>
                         <h6 class="text-muted tag mb-0">修复</h6>

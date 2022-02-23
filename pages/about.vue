@@ -9,10 +9,10 @@
           <div class="row mt-5 justify-content-center">
             <div class="col-12">
               <div class="heading-title text-center">
-                <h2 class="text-white title  title-dark mb-3">About us</h2>
-                <p class="para-desc mx-auto text-white-50">Explore and learn more about everything from machine learning and global payments to  scaling your team.</p>
+                <h2 class="text-white title  title-dark mb-3">关于我们</h2>
+                <p class="para-desc mx-auto text-white-50">一切源于我们的梦想，对数字世界的憧憬</p>
                 <div class="mt-4 pt-2">
-                  <a href="javascript:void(0)" class="btn btn-light">Read Our Story</a>
+                  <a href="about/#ourStory" class="btn btn-light">我们的故事</a>
                 </div>
               </div>
             </div><!--end col-->
@@ -29,20 +29,20 @@
       <!-- Home End -->
 
       <!-- Start -->
-      <section class="section">
+      <section class="section" id="ourStory">
         <div class="container">
           <div class="row">
             <div class="col-md-6">
               <div class="section-title mb-4 pb-2 mb-sm-0 pb-sm-0 me-lg-5">
-                <h6 class="text-primary">Our Story</h6>
-                <h4 class="title mb-0 me-lg-5">Tools should adapt to the user, not the other way around.</h4>
+                <h6 class="text-primary">我们的故事</h6>
+                <h4 class="title mb-0 me-lg-5">以人为本，科技服务于生活</h4>
               </div>
             </div><!--end col-->
 
             <div class="col-md-6">
               <div class="section-title">
-                <p class="text-muted para-desc"> It is said that song composers of the past used dummy texts as lyrics when writing melodies in order to have a 'ready-made' text to sing with the melody. Dummy texts have been in use by typesetters since the 16th century.</p>
-                <p class="text-muted para-desc mb-0">If the distribution of letters and 'words' is random, the reader will not be distracted from making a neutral judgement on the visual impact and readability.</p>
+                <p class="text-muted para-desc">我们团队主要有资深从事金融保险基金，影视设备和内容制作，体育AI品牌的技术团队</p>
+                <p class="text-muted para-desc mb-0">有搭建过0-1的CRM系统经验。</p>
               </div>
             </div><!--end col-->
           </div><!--end row-->
@@ -55,9 +55,9 @@
                 </div>
 
                 <div class="card-body p-0 mt-4">
-                  <h5>Our Vision</h5>
-                  <p class="text-muted mb-0">Composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
-                  <div class="mt-2">
+                  <h5>愿景</h5>
+                  <p class="text-muted mb-0">为企业数字化方案</p>
+                  <div v-if="false" class="mt-2">
                     <a href="javascript:void(0)" class="link">Read More <i data-feather="arrow-right" class="fea icon-sm"></i></a>
                   </div>
                 </div>
@@ -71,9 +71,9 @@
                 </div>
 
                 <div class="card-body p-0 mt-4">
-                  <h5>Our Goals</h5>
-                  <p class="text-muted mb-0">Composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
-                  <div class="mt-2">
+                  <h5>目标</h5>
+                  <p class="text-muted mb-0">服务世界五百强的企业</p>
+                  <div v-if="false" class="mt-2">
                     <a href="javascript:void(0)" class="link">Read More <i data-feather="arrow-right" class="fea icon-sm"></i></a>
                   </div>
                 </div>
@@ -87,9 +87,9 @@
                 </div>
 
                 <div class="card-body p-0 mt-4">
-                  <h5>Our Mission</h5>
-                  <p class="text-muted mb-0">Composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
-                  <div class="mt-2">
+                  <h5>使命</h5>
+                  <p class="text-muted mb-0">降本增效，品效合一</p>
+                  <div v-if="false" class="mt-2">
                     <a href="javascript:void(0)" class="link">Read More <i data-feather="arrow-right" class="fea icon-sm"></i></a>
                   </div>
                 </div>
@@ -166,7 +166,7 @@
           </div><!--end row-->
         </div><!--end container-->
 
-        <div class="container mt-100 mt-60">
+        <div v-if="false" class="container mt-100 mt-60">
           <div class="row justify-content-center">
             <div class="col-lg-9">
               <div class="row" id="counter">
@@ -195,7 +195,7 @@
           </div>
         </div><!--end container-->
 
-        <div class="container mt-100 mt-60">
+        <div v-if="false" class="container mt-100 mt-60">
           <div class="row justify-content-center">
             <div class="col-12">
               <div class="section-title text-center mb-4 pb-2">

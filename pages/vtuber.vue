@@ -12,7 +12,7 @@
               <p class="text-muted para-desc mb-0">品牌自创IP角色，手持元宇宙的门票</p>
 
               <div class="mt-4 align-items-center">
-                <a href="javascript:void(0)" class="btn btn-primary">查看</a>
+                <a href="vtuber/#about" class="btn btn-primary">查看</a>
               </div>
             </div>
           </div><!--end col-->
@@ -41,7 +41,7 @@
             <div class="position-relative">
               <img src="/images/vtuber/aboutme.png" class="img-fluid rounded shadow-md" alt="">
               <div class="play-icon">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#watchvideomodal" class="play-btn video-play-icon">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#watchvideomodal" class="play-btn video-play-icon" @click="handlePlayVideo">
                   <i class="mdi mdi-play text-primary rounded-circle bg-white shadow"></i>
                 </a>
               </div>
@@ -555,9 +555,26 @@
 
 <script>
 import LayoutNormal from "~/pages/layout/normal";
+import Swal from 'sweetalert2';
 export default {
   name: "vtuber",
-  components: {LayoutNormal}
+  components: {LayoutNormal},
+  methods: {
+    handlePlayVideo() {
+      console.log('click play....');
+      Swal.fire({
+        title: '',
+        icon: '',
+        html:
+          '<video src="/videos/introduction.mov" style="width: 640px; max-width: 100%;" controls></video>',
+        showConfirmButton: false,
+        showCancelButton: true,
+        focusConfirm: false,
+        cancelButtonText:
+          '<i class="fa fa-thumbs-up"></i> Close',
+      });
+    }
+  },
 }
 </script>
 
