@@ -35,7 +35,7 @@
             <div class="col-md-6">
               <div class="section-title mb-4 pb-2 mb-sm-0 pb-sm-0 me-lg-5">
                 <h6 class="text-primary">我们的故事</h6>
-                <h4 class="title mb-0 me-lg-5">以人为本，科技服务于生活</h4>
+                <h4 class="title mb-0 me-lg-5">以人为本，科技创造生活</h4>
               </div>
             </div><!--end col-->
 
