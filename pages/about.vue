@@ -56,7 +56,7 @@
 
                 <div class="card-body p-0 mt-4">
                   <h5>愿景</h5>
-                  <p class="text-muted mb-0">帮助企业实现数字化</p>
+                  <p class="text-muted mb-0">让所有企业都实现数字化</p>
                   <div v-if="false" class="mt-2">
                     <a href="javascript:void(0)" class="link">Read More <i data-feather="arrow-right" class="fea icon-sm"></i></a>
                   </div>
