@@ -86,7 +86,7 @@
 
         <div class="row justify-content-center mt-4">
           <div class="col-12 text-center">
-            <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> 2021 ArtisanCloud.</p>
+            <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> 2021 ArtisanCloud - 元匠信息科技（上海）有限公司.</p>
             <p class="mb-0"><a class="beian-link" href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">沪ICP备2021029387号-1</a></p>
           </div>
         </div>
