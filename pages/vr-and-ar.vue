@@ -7,7 +7,7 @@
         <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="3000">
-              <div class="bg-home bg-animation-left d-flex align-items-center" style="background-image:url('/images/business/bg1.jpg')">
+              <div class="bg-home bg-animation-left d-flex align-items-center" style="background-image:url('/images/vr-ar/vr.jpg')">
                 <div class="bg-overlay"></div>
                 <div class="container">
                   <div class="row justify-content-center mt-5">

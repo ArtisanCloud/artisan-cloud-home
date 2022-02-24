@@ -11,6 +11,10 @@
                 <h2 class="text-white title-dark title mb-3">联系我们</h2>
                 <p class="para-desc mx-auto text-white-50">欢迎通过一下方式，与我们取得联系.</p>
               </div>
+              <div class="mt-4 text-center">
+                <img src="/images/contactus/contact-qr-matrix-x.a5ec6a09.png" class="img-fluid m-2" style="width: 16%" alt="">
+                <img src="/images/contactus/contact-qr-walle.b970715f.png" class="img-fluid m-2" style="width: 16%" alt="">
+              </div>
             </div><!--end col-->
           </div><!--end row-->
         </div><!--end container-->
@@ -26,9 +30,7 @@
 
       <!-- Start -->
       <section class="section pb-0">
-
-
-        <div class="container mt-100 mt-60">
+        <div class="container mt-40">
           <div class="row">
             <div class="col-lg-4 col-md-6">
               <div class="card border-0 text-center features feature-primary">

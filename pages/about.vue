@@ -42,7 +42,7 @@
             <div class="col-md-6">
               <div class="section-title">
                 <p class="text-muted para-desc">我们团队主要有资深从事金融保险基金，影视设备和内容制作，体育AI品牌的技术团队</p>
-                <p class="text-muted para-desc mb-0">有搭建过0-1的CRM系统经验。</p>
+                <p class="text-muted para-desc mb-0">0-1搭建CRM系统</p>
               </div>
             </div><!--end col-->
           </div><!--end row-->
@@ -56,7 +56,7 @@
 
                 <div class="card-body p-0 mt-4">
                   <h5>愿景</h5>
-                  <p class="text-muted mb-0">为企业数字化方案</p>
+                  <p class="text-muted mb-0">帮助企业实现数字化</p>
                   <div v-if="false" class="mt-2">
                     <a href="javascript:void(0)" class="link">Read More <i data-feather="arrow-right" class="fea icon-sm"></i></a>
                   </div>
@@ -72,7 +72,7 @@
 
                 <div class="card-body p-0 mt-4">
                   <h5>目标</h5>
-                  <p class="text-muted mb-0">服务世界五百强的企业</p>
+                  <p class="text-muted mb-0">降本增效，品效合一</p>
                   <div v-if="false" class="mt-2">
                     <a href="javascript:void(0)" class="link">Read More <i data-feather="arrow-right" class="fea icon-sm"></i></a>
                   </div>
@@ -88,7 +88,7 @@
 
                 <div class="card-body p-0 mt-4">
                   <h5>使命</h5>
-                  <p class="text-muted mb-0">降本增效，品效合一</p>
+                  <p class="text-muted mb-0">秉持匠心精神，打造极致服务产品</p>
                   <div v-if="false" class="mt-2">
                     <a href="javascript:void(0)" class="link">Read More <i data-feather="arrow-right" class="fea icon-sm"></i></a>
                   </div>

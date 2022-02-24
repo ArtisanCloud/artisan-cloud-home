@@ -88,7 +88,7 @@
                   <h3 class="mb-0"><i class="uil uil-shield-plus"></i></h3>
                 </div>
                 <div class="card-body p-0 mt-4">
-                  <a href="javascript:void(0)" class="title text-dark h5">Other...</a>
+                  <a href="javascript:void(0)" class="title text-dark h5">其他...</a>
                 </div>
               </div>
             </div><!--end col-->
@@ -100,10 +100,10 @@
         <div class="row">
           <div class="col-12">
             <ul class="list-unstyled text-muted h6 text-lg-center mb-0">
-              <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-check-circle align-middle"></i></span>Trusted by thousands of traders</li>
-              <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-check-circle align-middle"></i></span>100% free to use</li>
-              <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-check-circle align-middle"></i></span>Suggests regulated brokers</li>
-              <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-check-circle align-middle"></i></span>Work with any team</li>
+              <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-check-circle align-middle"></i></span>信任度</li>
+              <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-check-circle align-middle"></i></span>易上手</li>
+              <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-check-circle align-middle"></i></span>渠道广</li>
+              <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-check-circle align-middle"></i></span>好协商</li>
             </ul>
           </div><!--end col-->
         </div><!--end row-->
@@ -113,15 +113,15 @@
         <div class="row justify-content-center">
           <div class="col-12">
             <div class="section-title text-center">
-              <h2 class="mb-4">The fastest way to find an <br> online broker</h2>
-              <p class="text-muted para-desc mx-auto mb-0">Explore and learn more about everything from machine learning and global payments to  scaling your team.</p>
+              <h2 class="mb-4">最快方式找到 <br> 目标群体</h2>
+              <p class="text-muted para-desc mx-auto mb-0">门槛低，见效快</p>
             </div>
           </div><!--end col-->
         </div><!--end row-->
       </div><!--end container-->
 
       <div class="container">
-        <div class="row align-items-center">
+        <div v-if="false" class="row align-items-center">
           <div class="col-md-6 order-1 order-md-2 mt-5 mt-lg-0">
             <div class="section-title">
               <h4 class="title mb-4">Great Service and Big Savings</h4>
@@ -139,7 +139,7 @@
         </div><!--end row-->
       </div><!--end container-->
 
-      <div class="container mt-100 mt-60">
+      <div v-if="false" class="container mt-100 mt-60">
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="section-title me-lg-5 mb-4 pt-2 mb-lg-0 pb-lg-0 text-lg-start text-center">
@@ -186,14 +186,14 @@
         <div class="row align-items-center">
           <div class="col-md-6 order-1 order-md-2">
             <div class="section-title">
-              <h4 class="title mb-4">We let data do the talking</h4>
-              <p class="para=desc text-muted">Regardless of how or what you trade, the broker you choose should be safe to use, affordable, and offer everything you need to trade at your best.</p>
+              <h4 class="title mb-4">我们让数据说话</h4>
+              <p class="para=desc text-muted">我们提供丰富的数据报表</p>
               <ul class="list-unstyled text-muted h6 mb-0">
-                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-receipt"></i></span>Commissions & fees</li>
-                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-file-shield-alt"></i></span>Safety & regulation</li>
-                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-user"></i></span>Customer service</li>
-                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-meeting-board"></i></span>Trading features</li>
-                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-chart-bar"></i></span>Instruments</li>
+                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-receipt"></i></span>客流统计</li>
+                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-file-shield-alt"></i></span>安全提示</li>
+                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-user"></i></span>用户跟踪</li>
+                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-meeting-board"></i></span>客户转化</li>
+                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-chart-bar"></i></span>预测分析</li>
               </ul>
               <div class="mt-4">
                 <a href="javascript:void(0)" class="btn btn-primary">Learn More</a>
@@ -219,7 +219,7 @@
     <!-- End -->
 
     <!-- Start -->
-    <section class="section bg-light">
+    <section v-if="false" class="section bg-light">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12">
@@ -362,7 +362,7 @@
       </div><!--end container-->
     </section><!--end section-->
 
-    <div class="container-fluid px-0">
+    <div v-if="false" class="container-fluid px-0">
       <div class="py-5 bg-footer">
         <div class="container">
           <div class="row align-items-center">

@@ -3,18 +3,18 @@
     <!-- Hero Start -->
     <section class="bg-home bg-primary d-flex align-items-center" style="background: url('/images/seo/bg.png') center center; height: auto;" id="home">
       <div class="container">
-        <div class="row mt-5 justify-content-center">
+        <div class="row mt-3 justify-content-center">
           <div class="col-lg-12 text-center mt-0 mt-md-5 pt-0 pt-md-5">
-            <div class="heading-title margin-top-100">
+            <div class="heading-title margin-top-50">
               <i class="uil uil-rocket h1 text-white-50"></i>
               <h1 class="display-4 fw-bold text-white title-dark my-3">数字营销活动</h1>
-              <p class="para-desc mx-auto text-white-50">Explore and learn more about everything from machine learning and global payments to  scaling your team.</p>
+              <p class="para-desc mx-auto text-white-50">主打微信生态的营销活动，让企业和客户紧密互动</p>
             </div>
 
             <div class="row justify-content-center">
               <div class="col-lg-8 col-md-10">
                 <div class="home-dashboard">
-                  <img src="/images/seo/hero.png" alt="" style="top: 0;" class="img-fluid">
+                  <img src="/images/marketing/wechat.png" alt="" style="top: 0;" class="img-fluid">
                 </div>
               </div>
             </div>
@@ -28,7 +28,7 @@
     <!-- Hero End -->
 
     <!-- Partners start -->
-    <section class="pt-4">
+    <section v-if="false" class="pt-4">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-2 col-md-2 col-6 text-center py-4">
@@ -65,22 +65,22 @@
           <div class="col-lg-6 col-md-6 col-12">
             <div class="section-title">
               <h4 class="title text-white title-dark mb-4">企业福利代发放</h4>
-              <p class="text-white-50 para-desc mb-0">Create, collaborate, and turn your ideas into incredible products with the definitive platform for digital design.</p>
+              <p class="text-white-50 para-desc mb-0">通过微信或支付宝平台，便捷企业福利发放</p>
             </div>
 
             <div class="mt-4 pt-2">
-              <h6 class="text-white title-dark">Ability to customize Title Tags</h6>
-              <p class="text-white-50 para-desc mb-0">Create, collaborate, and turn your ideas into incredible products with the definitive platform for digital design.</p>
+              <h6 class="text-white title-dark">线上市场活动</h6>
+              <p class="text-white-50 para-desc mb-0">客户趣味互动，红包打赏发放</p>
             </div>
 
             <div class="mt-4 pt-2">
-              <h6 class="text-white title-dark">A well-optimized URL structure</h6>
-              <p class="text-white-50 para-desc mb-0">Create, collaborate, and turn your ideas into incredible products with the definitive platform for digital design.</p>
+              <h6 class="text-white title-dark">员工福利加奖</h6>
+              <p class="text-white-50 para-desc mb-0">企业员工福利，零钱打赏</p>
             </div>
 
             <div class="mt-4 pt-2">
-              <h6 class="text-white title-dark">Good customer support system.</h6>
-              <p class="text-white-50 para-desc mb-0">Create, collaborate, and turn your ideas into incredible products with the definitive platform for digital design.</p>
+              <h6 class="text-white title-dark">企业报销</h6>
+              <p class="text-white-50 para-desc mb-0">即时到账，方便员工差旅报销</p>
             </div>
           </div><!--end col-->
 
@@ -92,7 +92,7 @@
     </section><!--end section-->
 
     <!-- Start -->
-    <section class="section">
+    <section v-if="false" class="section">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 col-md-5">
@@ -246,7 +246,7 @@
       </div><!--end container-->
     </section><!--end section-->
 
-    <div class="container-fluid px-0">
+    <div v-if="false" class="container-fluid px-0">
       <div class="py-5 bg-footer">
         <div class="container">
           <div class="row align-items-center">
