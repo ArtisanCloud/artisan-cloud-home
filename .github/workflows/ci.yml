@@ -42,9 +42,6 @@ jobs:
           version: 6.32.2
           run_install: true
 
-      - name: Install node dependencies
-        run: pnpm i
-
       - name: Generate static sites
         run: pnpm generate
 

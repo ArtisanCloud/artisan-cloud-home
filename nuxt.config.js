@@ -28,8 +28,6 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', type: 'text/css', href: '/css/bootstrap.min.css' },
-      { rel: 'stylesheet', type: 'text/css', href: '/css/materialdesignicons.min.css' },
-      { rel: 'stylesheet', type: 'text/css', href: '/css/materialdesignicons.min.css' },
       { rel: 'stylesheet', type: 'text/css', href: 'https://unicons.iconscout.com/release/v4.0.0/css/line.css' },
       { rel: 'stylesheet', type: 'text/css', href: '/css/style.css' },
       { rel: 'stylesheet', type: 'text/css', href: '/css/colors/default.css' },
