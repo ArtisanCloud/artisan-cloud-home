@@ -16,8 +16,8 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        node: [14]
+        os: [ ubuntu-latest ]
+        node: [ 16 ]
 
     steps:
       - name: Checkout 🛎
@@ -29,17 +29,40 @@ jobs:
           node-version: ${{ matrix.node }}
           check-latest: true
 
-      - name: Cache node_modules 📦
-        uses: actions/cache@v2.1.4
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-
 
-      - name: Install dependencies 👨🏻‍💻
-        run: npm ci --prefer-offline --no-audit
+      - uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 6.32.2
+          run_install: true
 
+      - name: Install node dependencies
+        run: pnpm i
 
-      - name: Run tests 🧪
-        run: npm run test
+      - name: Generate static sites
+        run: pnpm generate
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Config coscmd
+        run: |
+          echo "${{ secrets.COS_CONFIG_YAML }}" > ~/.cos.yaml
+
+      - name: Install coscmd
+        run: |
+          wget https://github.com/tencentyun/coscli/releases/download/v0.10.2-beta/coscli-linux
+          mv coscli-linux coscli
+          chmod 755 coscli
+          ./coscli --version
+
+      - name: Upload docs to SH
+        run: |
+          ./coscli cp dist/ cos://artisancloud-home-1307679408/ -r --thread-num 20
