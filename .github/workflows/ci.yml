@@ -23,6 +23,15 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@master
 
+      - name: Tailscale
+        uses: tailscale/github-action@v1
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+      - name: Test tailscale
+        run: |
+          tailscale --version
+          tailscale status
+
       - name: Setup node env 🏗
         uses: actions/setup-node@v2.1.5
         with:
@@ -43,7 +52,6 @@ jobs:
       - name: Generate static sites
         run: npm run generate
 
-
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
@@ -61,4 +69,7 @@ jobs:
 
       - name: Upload docs to SH
         run: |
+          export https_proxy=http://100.80.124.100:1089
+          export http_proxy=http://100.80.124.100:1089
+          export all_proxy=socks5://100.80.124.100:1089
           ./coscli cp dist/ cos://artisancloud-home-1307679408/ -r --thread-num 20
