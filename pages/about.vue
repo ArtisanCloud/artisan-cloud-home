@@ -12,7 +12,7 @@
                 <h2 class="text-white title  title-dark mb-3">关于我们</h2>
                 <p class="para-desc mx-auto text-white-50">一切源于我们的梦想，对数字世界的憧憬</p>
                 <div class="mt-4 pt-2">
-                  <a href="about/#ourStory" class="btn btn-light">我们的故事</a>
+                  <a href="#ourStory" class="btn btn-light">我们的故事</a>
                 </div>
               </div>
             </div><!--end col-->
@@ -99,7 +99,7 @@
         </div><!--end container-->
 
         <div class="container mt-100 mt-60">
-          <div class="row mt-5" data-masonry='{"percentPosition": true }'>
+          <div class="row mt-5">
             <div class="col-md-3 col-4 spacing">
               <div class="card border-0 position-relative d-block shadow overflow-hidden rounded">
                 <div class="card-body p-0">
