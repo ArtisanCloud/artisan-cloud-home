@@ -22,13 +22,13 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: '元匠信息科技(上海)有限公司，英文名：ArtisanCloud，是一家围绕图像AI影视AI、VR、AR以及元宇宙等为核心的AI科技公司' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', type: 'text/css', href: '/css/bootstrap.min.css' },
-      { rel: 'stylesheet', type: 'text/css', href: 'https://unicons.iconscout.com/release/v4.0.0/css/line.css' },
+      { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.artisancloud.cn/npm/@iconscout/unicons@4.0.1/css/line.css' },
       { rel: 'stylesheet', type: 'text/css', href: '/css/style.css' },
       { rel: 'stylesheet', type: 'text/css', href: '/css/colors/default.css' },
     ],
