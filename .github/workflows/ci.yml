@@ -16,12 +16,21 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        node: [14]
+        os: [ ubuntu-latest ]
+        node: [ 16 ]
 
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@master
+
+      - name: Tailscale
+        uses: tailscale/github-action@v1
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+      - name: Test tailscale
+        run: |
+          tailscale --version
+          tailscale status
 
       - name: Setup node env 🏗
         uses: actions/setup-node@v2.1.5
@@ -40,6 +49,27 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit
 
+      - name: Generate static sites
+        run: npm run generate
 
-      - name: Run tests 🧪
-        run: npm run test
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Config coscmd
+        run: |
+          echo "${{ secrets.COS_CONFIG_YAML }}" > ~/.cos.yaml
+
+      - name: Install coscmd
+        run: |
+          wget https://github.com/tencentyun/coscli/releases/download/v0.10.2-beta/coscli-linux
+          mv coscli-linux coscli
+          chmod 755 coscli
+          ./coscli --version
+
+      - name: Upload docs to SH
+        run: |
+          export https_proxy=http://100.80.124.100:1089
+          export http_proxy=http://100.80.124.100:1089
+          export all_proxy=socks5://100.80.124.100:1089
+          ./coscli cp dist/ cos://artisancloud-home-1307679408/ -r --thread-num 20
