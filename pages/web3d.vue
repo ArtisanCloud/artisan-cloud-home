@@ -14,7 +14,7 @@
                     <div class="col-12">
                       <div class="title-heading text-center mt-4">
                         <h1 class="display-4 text-white title-dark fw-bold mb-3">Web 3D</h1>
-                        <p class="para-desc text-white-50 mx-auto para-dark">数字孪生 WebGL</p>
+                        <p class="para-desc text-white-50 mx-auto para-dark"><a href="web3d/#city">数字孪生</a> WebGL</p>
                         
                       </div>
                     </div><!--end col-->
@@ -73,14 +73,14 @@
       <!-- Hero End -->
 
       <!-- Start -->
-      <section class="section">
+      <section class="section" id="city">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-6">
               <div class="position-relative me-lg-5">
                 <img src="/images/web3d/city.png" class="img-fluid" alt="">
-                <div class="play-icon">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#watchvideomodal" class="play-btn video-play-icon">
+                <div v-if="false" class="play-icon">
+                  <a href="https://m.artisancloud.cn/demo/three-3d-city/index.html" target="_blank" data-bs-toggle="modal" data-bs-target="#watchvideomodal" class="play-btn video-play-icon">
                     <i class="mdi mdi-play text-primary rounded-circle bg-white shadow"></i>
                   </a>
                 </div>
