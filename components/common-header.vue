@@ -35,6 +35,17 @@
         <!-- Navigation Menu-->
         <ul class="navigation-menu nav-left" :class="{'nav-light': isNavLight}">
           <li><a href="/" class="sub-menu-item">首页</a></li>
+          <li class="has-submenu parent-parent-menu-item"><a href="javascript:void(0)">虚拟技术</a><span class="menu-arrow"></span>
+            <ul class="submenu megamenu">
+              <li>
+                <ul>
+                  <li><a href="/web3d/" class="sub-menu-item">Web 3D</a></li>
+                  <li><a href="/vtuber/" class="sub-menu-item">虚拟主播方案</a></li>
+                  <li><a href="/vr-and-ar/" class="sub-menu-item">VR & AR</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
           <li class="has-submenu parent-parent-menu-item"><a href="javascript:void(0)">人工智能</a><span class="menu-arrow"></span>
             <ul class="submenu megamenu">
               <li>
@@ -42,16 +53,6 @@
                   <li><a href="/branding/" class="sub-menu-item">智能品宣方案</a></li>
                   <li><a href="/image-ai/" class="sub-menu-item">图像AI技术</a></li>
                   <li><a href="/voice-ai/" class="sub-menu-item">语音AI识别</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="has-submenu parent-parent-menu-item"><a href="javascript:void(0)">虚拟影像</a><span class="menu-arrow"></span>
-            <ul class="submenu megamenu">
-              <li>
-                <ul>
-                  <li><a href="/vtuber/" class="sub-menu-item">虚拟主播方案</a></li>
-                  <li><a href="/vr-and-ar/" class="sub-menu-item">VR & AR</a></li>
                 </ul>
               </li>
             </ul>
