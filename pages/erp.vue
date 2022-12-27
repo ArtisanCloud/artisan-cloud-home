@@ -1,166 +1,262 @@
 <template>
-  <layout-normal is-nav-light is-logo-light>
-    <!-- Start -->
-    <section class="bg-half-170 d-table w-100 bg-primary" style="background: url('/images/bg/bg-broker.png') bottom;">
-      <div class="container">
-        <div class="row mt-5">
-          <div class="col-12">
-            <div class="heading-title">
-              <h4 class="display-4 fw-bold text-white title-dark">企业资源规划 (ERP)</h4>
-              <p class="text-white-50 para-desc mb-0">为当今企业创造机会</p>
-            </div>
-          </div><!--end col-->
-        </div><!--end row-->
-      </div><!--end container-->
-    </section><!--end section-->
-    <div class="position-relative">
-      <div class="shape overflow-hidden text-white">
-        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
-        </svg>
+  <div>
+    <common-header is-nav-light is-logo-light/>
+    <div>
+      <!-- Home Start -->
+      <section class="bg-half-170 d-table w-100" style="background: url('/images/erp/bg.jpg') center center">
+        <div class="bg-overlay"></div>
+        <div class="container">
+          <div class="row mt-5 justify-content-center">
+            <div class="col-12">
+              <div class="heading-title text-center">
+                <h2 class="text-white title  title-dark mb-3">行业特定的 ERP 解决方案</h2>
+                <p class="para-desc mx-auto text-white-50">使用现代化、专业化的ERP 解决方案提升企业的关键业务运营</p>
+                <div class="mt-4 pt-2">
+                </div>
+              </div>
+            </div><!--end col-->
+          </div><!--end row-->
+        </div><!--end container-->
+      </section><!--end section-->
+      <div class="position-relative">
+        <div class="shape overflow-hidden text-white">
+          <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+          </svg>
+        </div>
       </div>
-    </div>
-    <!-- End -->
+      <!-- Home End -->
 
-
-    <!-- Start -->
-    <section class="section">
-      <div class="container mt-100 mt-60">
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <div class="section-title text-left">
-              <h2 class="mb-4">为您的行业而生</h2>
-              <p class="text-muted para-desc mx-auto mb-0">充分利用内置的90%特定于行业的功能，这样您的企业就可以专注于开发独特的流程</p>
-            </div>
-            <div class="section-title text-center">
-              <h2 class="mb-4">云与技术生态系统</h2>
-              <p class="text-muted para-desc mx-auto mb-0">利用支持集成、工作流、上下文BI、可扩展性、物联网和AI的全球云基础设施</p>
-            </div>
-            <div class="section-title text-right">
-              <h2 class="mb-4">数据和分析</h2>
-              <p class="text-muted para-desc mx-auto mb-0">在整个企业中实现快速的、数据驱动的决策，并使关键kpi指标与部门目标保持一致</p>
-            </div>
-
-            <div class="section-title text-right">
-              <h2 class="mb-4">安全及风险管理</h2>
-              <p class="text-muted para-desc mx-auto mb-0">依靠基于标准的安全性、风险和故障转移管理、攻击预防和过程来提高安全性</p>
-            </div>
-
-            <div class="section-title text-right">
-              <h2 class="mb-4">敏捷部署</h2>
-              <p class="text-muted para-desc mx-auto mb-0">通过实现加速器 (IA) 加速实现价值的时间，并获得附加功能的可伸缩性</p>
-            </div>
-
-          </div><!--end col-->
-        </div><!--end row-->
-      </div><!--end container-->
-
-      <div class="container">
-        <div v-if="false" class="row align-items-center">
-          <div class="col-md-6 order-1 order-md-2 mt-5 mt-lg-0">
-            <div class="section-title">
-              <h4 class="title mb-4">Great Service and Big Savings</h4>
-              <p class="para=desc text-muted">Regardless of how or what you trade, the broker you choose should be safe to use, affordable, and offer everything you need to trade at your best.</p>
-              <p class="para-desc text-muted">That’s why we’re highly selective. We only feature brokers regulated by a trusted authority and we make it easy to compare their fees & features, so that you can make an informed choice.</p>
-              <div class="mt-4">
-                <a href="javascript:void(0)" class="btn btn-primary">Learn More</a>
+      <!-- Start -->
+      <section class="section" id="ourStory">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="section-title mb-4 pb-2 mb-sm-0 pb-sm-0 me-lg-5">
+                <h6 class="text-primary">我们秉持的价值观</h6>
+                <h4 class="title mb-0 me-lg-5">用科技与创新为企业创造价值</h4>
               </div>
-            </div>
-          </div><!--end col-->
+            </div><!--end col-->
 
-          <div class="col-md-6 order-2 order-md-1">
-            <img src="/images/svg/business-deal.svg" class="img-fluid" alt="">
-          </div><!--end col-->
-        </div><!--end row-->
-      </div><!--end container-->
+            <div class="col-md-6">
+              <div class="section-title">
+                <p class="text-muted para-desc">通过行业顾问多年的专业经验，能够充分满足细分行业的各类需求，匹配快速发展的业务，将更多时间专注于业务本身</p>
+                <p class="text-muted para-desc mb-0"></p>
+              </div>
+            </div><!--end col-->
+          </div><!--end row-->
 
-      <div v-if="false" class="container mt-100 mt-60">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="section-title me-lg-5 mb-4 pt-2 mb-lg-0 pb-lg-0 text-lg-start text-center">
-              <h4 class="title mb-4">Brokerage Calculator</h4>
-              <p class="para-desc mx-auto ms-lg-0 text-muted">Use the brokerage calculator to calculate exactly how much you will pay in brokerage and your breakeven.</p>
-            </div>
-          </div><!--end col-->
+          <div class="row mt-4 pt-2">
+            <div class="col-lg-4 col-md-6 mt-4 pt-2">
+              <div class="card border-0 text-center features feature-primary rounded">
+                <div class="icon text-center mx-auto rounded-md">
+                  <h3 class="mb-0"><i class="uil uil-chart-pie"></i></h3>
+                </div>
 
-          <div class="col-lg-6 mt-4 mt-lg-0 pt-2 pt-lg-0">
-            <div class="p-4 shadow rounded" role="form">
-              <ul class="list-unstyled d-flex justify-content-between mb-0">
-                <li class="h6 mb-0">Min $ 10000</li>
-                <li class="h6 mb-0">Max $ 200000</li>
-              </ul>
+                <div class="card-body p-0 mt-4">
+                  <h5>专业的顾问团队</h5>
+                  <p class="text-muted mb-0">我们专业的顾问团队具有优秀的学历与行业工作背景，致力于充分了解客户的需求和偏好，为客户量身定做专业方案建议，与客户建立长期的互信合作关系。</p>
+                  <div v-if="false" class="mt-2">
+                    <a href="javascript:void(0)" class="link">Read More <i data-feather="arrow-right" class="fea icon-sm"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!--end col-->
 
-              <div class="row">
-                <div class="col-sm-12 mb-4">
-                  <label for="slider" class="form-label"></label>
-                  <input type="range" value="10000" min="10000" max="200000" class="form-range custom-range" id="slider">
-                </div><!--end col-->
+            <div class="col-lg-4 col-md-6 mt-4 pt-2">
+              <div class="card border-0 text-center features feature-primary rounded">
+                <div class="icon text-center mx-auto rounded-md">
+                  <h3 class="mb-0"><i class="uil uil-crosshair"></i></h3>
+                </div>
+
+                <div class="card-body p-0 mt-4">
+                  <h5>强大的技术能力</h5>
+                  <p class="text-muted mb-0"> 整体技术团队具有多年的技术积累，具备较强执行力，在不断优化现有产品线的同时，还对互联网领域的前瞻性技术进行深入地研究与应用。</p>
+                  <div v-if="false" class="mt-2">
+                    <a href="javascript:void(0)" class="link">Read More <i data-feather="arrow-right" class="fea icon-sm"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!--end col-->
+
+            <div class="col-lg-4 col-md-6 mt-4 pt-2">
+              <div class="card border-0 text-center features feature-primary rounded">
+                <div class="icon text-center mx-auto rounded-md">
+                  <h3 class="mb-0"><i class="uil uil-airplay"></i></h3>
+                </div>
+
+                <div class="card-body p-0 mt-4">
+                  <h5>广泛的行业经验</h5>
+                  <p class="text-muted mb-0">公司团队成员深耕企业信息化行业近十五年，始终服务于各行业的大中型企业，具有行业先发和经验优势。</p>
+                  <div v-if="false" class="mt-2">
+                    <a href="javascript:void(0)" class="link">Read More <i data-feather="arrow-right" class="fea icon-sm"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!--end col-->
+          </div><!--end row-->
+        </div><!--end container-->
+
+
+        <div class="container"  style="margin-top:150px; margin-bottom: 50px;">
+          <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6 col-12">
+              <div class="position-relative">
+                <img src="/images/erp/bg2.jpg" class="img-fluid rounded shadow-md" alt="">
+                <div class="play-icon">
+                </div>
+              </div>
+            </div><!--end col-->
+
+            <div class="col-lg-7 col-md-6 col-12 mt-4 pt-2 mt-sm-0 pt-sm-0">
+              <div class="ms-lg-5">
+                <div class="section-title">
+                  <h4 class="title fw-bold mt-2 mb-4">仓储物流解决方案</h4>
+                  <p class="para-desc text-muted"> 专业的供应链物流一体化解决方案，覆盖常温、冷链、生鲜等物流中心及以仓配为中心上下游供应链的移动化协同作业，全面助力企业打造规范、高效、智能的物流信息化系统。</p>
+                </div>
+
+              </div>
+            </div><!--end col-->
+          </div><!--end row-->
+        </div><!--end container-->
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6 col-12">
+              <div class="position-relative">
+                <img src="/images/erp/bg1.jpg" class="img-fluid rounded shadow-md" alt="">
+                <div class="play-icon">
+                </div>
+              </div>
+            </div><!--end col-->
+
+            <div class="col-lg-7 col-md-6 col-12 mt-4 pt-2 mt-sm-0 pt-sm-0">
+              <div class="ms-lg-5">
+                <div class="section-title">
+                  <h4 class="title fw-bold mt-2 mb-4">文旅行业解决方案 </h4>
+                  <p class="para-desc text-muted">通过一体化的信息化平台，整合各经营业态，向游客提供优质的客户体验，形成大数据为管理与决策提供支撑，协助文旅企业有序发展。</p>
+                </div>
+
+              </div>
+            </div><!--end col-->
+          </div><!--end row-->
+        </div><!--end container-->
+
+
+        <div v-if="false" class="container mt-100 mt-60">
+          <div class="row justify-content-center">
+            <div class="col-lg-9">
+              <div class="row" id="counter">
+                <div class="col-md-4 col-6">
+                  <div class="counter-box text-center">
+                    <h1 class="mb-0"><span class="counter-value" data-target="9">1</span></h1>
+                    <h6 class="counter-head text-muted">Year of business</h6>
+                  </div><!--end counter box-->
+                </div>
+
+                <div class="col-md-4 col-6">
+                  <div class="counter-box text-center">
+                    <h1 class="mb-0"><span class="counter-value" data-target="106">1</span>k+</h1>
+                    <h6 class="counter-head text-muted">Number of Sales</h6>
+                  </div><!--end counter box-->
+                </div>
+
+                <div class="col-md-4 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                  <div class="counter-box text-center">
+                    <h1 class="mb-0"><span class="counter-value" data-target="93">9</span>%</h1>
+                    <h6 class="counter-head text-muted">Happy Customers</h6>
+                  </div><!--end counter box-->
+                </div>
               </div><!--end row-->
-
-              <ul class="list-unstyled text-center d-md-flex justify-content-between mb-0">
-                <li>
-                  <ul class="mb-0 text-md-start brokerage-form list-unstyled">
-                    <li class="h5 mb-0"><label class="control-label">Total Value ($)</label></li>
-                    <li class="h5 mb-0"><input type="hidden" id="amount" class="form-control"><span class="text-primary">$</span><p class="mb-0 d-inline-block h5 text-primary" id="amount-label"></p></li>
-                  </ul>
-                </li>
-
-                <li class="mt-2 mt-sm-0">
-                  <ul class="mb-0 text-md-end brokerage-form list-unstyled">
-                    <li class="h5 mb-0"><label class="control-label">Brokerage Fee</label></li>
-                    <li class="h5 mb-0"><input type="hidden" id="saving" class="form-control mb-0"> <p class="mb-0 d-inline-block h5 text-primary" id="saving-label"></p></li>
-                  </ul>
-                </li>
-              </ul>
             </div>
-          </div><!--end col-->
-        </div><!--end row-->
-      </div><!---end container-->
+          </div>
+        </div><!--end container-->
 
-      <div class="container mt-100 mt-60">
-        <div class="row align-items-center">
-          <div class="col-md-6 order-1 order-md-2">
-            <div class="section-title">
-              <h4 class="title mb-4">我们让数据说话</h4>
-              <p class="para=desc text-muted">我们提供丰富的数据报表</p>
-              <ul class="list-unstyled text-muted h6 mb-0">
-                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-receipt"></i></span>客流统计</li>
-                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-file-shield-alt"></i></span>安全提示</li>
-                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-user"></i></span>用户跟踪</li>
-                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-meeting-board"></i></span>客户转化</li>
-                <li class="list-inline-item me-lg-5 me-4"><span class="text-primary h3 me-2"><i class="uil uil-chart-bar"></i></span>预测分析</li>
-              </ul>
-              <div class="mt-4">
-                <a href="javascript:void(0)" class="btn btn-primary">Learn More</a>
+        <div v-if="false" class="container mt-100 mt-60">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="section-title text-center mb-4 pb-2">
+                <h6 class="text-primary">Our Team</h6>
+                <h4 class="title mb-4">Creative Team Members</h4>
+                <p class="text-muted para-desc mx-auto mb-0">Explore and learn more about everything from machine learning and global payments to  scaling your team.</p>
+              </div>
+            </div><!--end col-->
+          </div><!--end row-->
+
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
+              <div class="card text-center team border-0 shadow rounded overflow-hidden">
+                <img src="/images/client/01.jpg" class="img-fluid" alt="">
+                <div class="card-body py-3 content">
+                  <h5 class="mb-0">Calvin Carlo</h5>
+                  <h6 class="text-muted mb-0">Founder / C.E.O</h6>
+                </div>
+                <ul class="list-unstyled team-social mb-0">
+                  <li><a href="mailto:contact@example.com" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="mail" class="icons"></i></a></li>
+                </ul>
+              </div>
+            </div><!--end col-->
+
+
+            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
+              <div class="card text-center team border-0 shadow rounded overflow-hidden">
+                <img src="/images/client/02.jpg" class="img-fluid" alt="">
+                <div class="card-body py-3 content">
+                  <h5 class="mb-0">Janalia Joseph</h5>
+                  <h6 class="text-muted mb-0">Co-Founder</h6>
+                </div>
+                <ul class="list-unstyled team-social mb-0">
+                  <li><a href="mailto:contact@example.com" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="mail" class="icons"></i></a></li>
+                </ul>
+              </div>
+            </div><!--end col-->
+
+
+            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
+              <div class="card text-center team border-0 shadow rounded overflow-hidden">
+                <img src="/images/client/03.jpg" class="img-fluid" alt="">
+                <div class="card-body py-3 content">
+                  <h5 class="mb-0">Miriam Coll</h5>
+                  <h6 class="text-muted mb-0">C.O.O</h6>
+                </div>
+                <ul class="list-unstyled team-social mb-0">
+                  <li><a href="mailto:contact@example.com" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="mail" class="icons"></i></a></li>
+                </ul>
+              </div>
+            </div><!--end col-->
+
+
+            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
+              <div class="card text-center team border-0 shadow rounded overflow-hidden">
+                <img src="/images/client/04.jpg" class="img-fluid" alt="">
+                <div class="card-body py-3 content">
+                  <h5 class="mb-0">Cristino Murphy</h5>
+                  <h6 class="text-muted mb-0">Marketing</h6>
+                </div>
+                <ul class="list-unstyled team-social mb-0">
+                  <li><a href="mailto:contact@example.com" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="mail" class="icons"></i></a></li>
+                </ul>
+              </div>
+            </div><!--end col-->
+
+            <div class="col-12 text-center mt-4 pt-2">
+              <div class="alert alert-light alert-pills" role="alert">
+                <span class="badge bg-danger rounded-pill me-1">Jobs</span>
+                <span class="content">We Are Hiring <a href="javascript:void(0)" class="text-primary"> Send your CV / Resume</a></span>
               </div>
             </div>
-          </div><!--end col-->
-
-          <div class="col-md-6 order-2 order-md-1 mt-4 pt-2 mt-sm-0 pt-sm-0">
-            <div class="card border-0 shadow rounded me-lg-4">
-              <div class="p-2">
-                <a href="javascript:void(0)" class="text-danger"><i class="mdi mdi-circle"></i></a>
-                <a href="javascript:void(0)" class="text-warning"><i class="mdi mdi-circle"></i></a>
-                <a href="javascript:void(0)" class="text-success"><i class="mdi mdi-circle"></i></a>
-              </div>
-              <div class="bg-light card-body p-md-4 p-2">
-                <img src="/images/saas/dashboard.png" alt="" class="img-fluid mx-auto d-block">
-              </div>
-            </div>
-          </div><!--end col-->
-        </div><!--end row-->
-      </div><!--end container-->
-    </section><!--end section-->
-    <!-- End -->
-
-  </layout-normal>
+          </div><!--end row-->
+        </div><!--end container-->
+      </section><!--end section-->
+      <!-- End -->
+    </div>
+    <common-footer />
+  </div>
 </template>
 
 <script>
-import LayoutNormal from "~/pages/layout/normal";
 export default {
-  name: "marketing",
-  components: {LayoutNormal}
+  name: "about.vue"
 }
 </script>
 
