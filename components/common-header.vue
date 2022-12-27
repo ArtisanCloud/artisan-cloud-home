@@ -35,6 +35,19 @@
         <!-- Navigation Menu-->
         <ul class="navigation-menu nav-left" :class="{'nav-light': isNavLight}">
           <li><a href="/" class="sub-menu-item">首页</a></li>
+          <li class="has-submenu parent-parent-menu-item"><a href="javascript:void(0)">企业数字服务</a><span class="menu-arrow"></span>
+            <ul class="submenu megamenu">
+              <li>
+                <ul>
+                  <li><a href="/erp/" class="sub-menu-item">企业资源规划 (ERP)</a></li>
+                  <li><a href="/marketing/#home" class="sub-menu-item">数字营销活动</a></li>
+                  <li><a href="/marketing/#b2" class="sub-menu-item">企业福利代发放</a></li>
+                  <li><a href="/a-d/" class="sub-menu-item">微信广告</a></li>
+                  <li v-if="false"><a href="index-software.html" class="sub-menu-item">客户关系管理CRM</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
           <li class="has-submenu parent-parent-menu-item"><a href="javascript:void(0)">虚拟技术</a><span class="menu-arrow"></span>
             <ul class="submenu megamenu">
               <li>
@@ -57,18 +70,7 @@
               </li>
             </ul>
           </li>
-          <li class="has-submenu parent-parent-menu-item"><a href="javascript:void(0)">企业数字服务</a><span class="menu-arrow"></span>
-            <ul class="submenu megamenu">
-              <li>
-                <ul>
-                  <li><a href="/marketing/#home" class="sub-menu-item">数字营销活动</a></li>
-                  <li><a href="/marketing/#b2" class="sub-menu-item">企业福利代发放</a></li>
-                  <li><a href="/a-d/" class="sub-menu-item">微信广告</a></li>
-                  <li v-if="false"><a href="index-software.html" class="sub-menu-item">客户关系管理CRM</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+
           <li><a href="/about/" class="sub-menu-item">关于我们</a></li>
         </ul><!--end navigation menu-->
 <!--        <div v-if="false" class="buy-menu-btn d-none">-->
