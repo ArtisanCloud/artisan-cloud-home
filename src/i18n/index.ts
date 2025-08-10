@@ -13,7 +13,34 @@ const messages = {
       title: 'ArtisanCloud 企业级解决方案',
       subtitle: 'CoreX 智能体底座、PowerX（SCRM）、MediaXStudio 自媒体营销、PowerWechat SDK',
       ctaProducts: '查看产品',
-      ctaContact: '联系我们'
+      ctaContact: '联系我们',
+      hero: {
+        title: '用智能体，让 AI 转化为可度量的生产力',
+        subtitle: '企业级智能体编排与运营平台，低门槛、可观测、可规模化，面向真实业务落地。',
+        ctaProducts: '查看产品',
+        ctaContact: '联系咨询'
+      },
+      mission: {
+        title: '我们的使命',
+        lowBarrier: {
+          title: '低门槛构建',
+          desc: '可视化编排，无需深度技术背景即可搭建复杂智能体工作流'
+        },
+        observable: {
+          title: '可观测运营',
+          desc: '全链路监控与回放，让每个决策都有数据支撑'
+        },
+        scalable: {
+          title: '规模化部署',
+          desc: '企业级容错与治理，支持从试点到全面推广'
+        },
+        statement: '让 AI 真实转化为可度量的生产力',
+        metrics: {
+          efficiency: '平均效率提升',
+          cost: '人工成本节约',
+          service: '不间断服务'
+        }
+      }
     },
     products: {
       title: '产品介绍',
@@ -34,6 +61,13 @@ const messages = {
           name: 'PowerWechat SDK',
           desc: '开源微信生态 SDK，快速对接企业微信/公众号/小程序能力'
         }
+      },
+      detail: {
+        intro: '产品简介',
+        features: '核心功能',
+        cta: '获取演示与方案',
+        notFound: '未找到产品',
+        backToList: '返回产品列表'
       }
     },
     cases: {
@@ -55,6 +89,16 @@ const messages = {
           name: '在线教育 C',
           desc: '使用 PowerX（SCRM）形成私域增长闭环，智能体辅助销售转化与售后服务。'
         }
+      },
+      detail: {
+        summary: '项目摘要',
+        challenge: '挑战',
+        solution: '方案',
+        results: '效果指标',
+        testimonial: '客户评价',
+        cta: '获取定制方案',
+        notFound: '未找到案例',
+        backToList: '返回案例列表'
       }
     },
     contact: {
@@ -84,7 +128,34 @@ const messages = {
       title: 'ArtisanCloud Enterprise Solutions',
       subtitle: 'CoreX Agent Platform, PowerX (SCRM), MediaXStudio, PowerWechat SDK',
       ctaProducts: 'View Products',
-      ctaContact: 'Contact Us'
+      ctaContact: 'Contact Us',
+      hero: {
+        title: 'Transform AI into Measurable Productivity with Agents',
+        subtitle: 'Enterprise agent orchestration platform: low-barrier, observable, scalable, for real business deployment.',
+        ctaProducts: 'View Products',
+        ctaContact: 'Get Consultation'
+      },
+      mission: {
+        title: 'Our Mission',
+        lowBarrier: {
+          title: 'Low-Barrier Building',
+          desc: 'Visual orchestration, build complex agent workflows without deep technical background'
+        },
+        observable: {
+          title: 'Observable Operations',
+          desc: 'Full-chain monitoring and replay, data-driven decision making'
+        },
+        scalable: {
+          title: 'Scalable Deployment',
+          desc: 'Enterprise-grade fault tolerance and governance, from pilot to full rollout'
+        },
+        statement: 'Transform AI into Measurable Productivity',
+        metrics: {
+          efficiency: 'Avg Efficiency Boost',
+          cost: 'Labor Cost Savings',
+          service: 'Non-stop Service'
+        }
+      }
     },
     products: {
       title: 'Products',
@@ -105,6 +176,13 @@ const messages = {
           name: 'PowerWechat SDK',
           desc: 'Open-source SDK for WeChat ecosystem integration'
         }
+      },
+      detail: {
+        intro: 'Product Overview',
+        features: 'Core Features',
+        cta: 'Get Demo & Solution',
+        notFound: 'Product Not Found',
+        backToList: 'Back to Products'
       }
     },
     cases: {
@@ -126,6 +204,16 @@ const messages = {
           name: 'Online Education C',
           desc: 'Leveraged PowerX (SCRM) to form private-domain growth loops, with agents assisting sales conversion and after-sales.'
         }
+      },
+      detail: {
+        summary: 'Project Summary',
+        challenge: 'Challenge',
+        solution: 'Solution',
+        results: 'Results',
+        testimonial: 'Client Testimonial',
+        cta: 'Get Custom Solution',
+        notFound: 'Case Not Found',
+        backToList: 'Back to Cases'
       }
     },
     contact: {

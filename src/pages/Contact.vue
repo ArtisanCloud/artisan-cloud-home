@@ -1,7 +1,7 @@
 <template>
   <section class="contact">
-    <h1>{{ $t('contact.title') }}</h1>
-    <p class="intro">{{ $t('contact.intro') }}</p>
+    <h1 class="gradient-text">{{ $t('contact.title') }}</h1>
+    <p class="intro text-muted">{{ $t('contact.intro') }}</p>
 
     <div class="grid">
       <div class="card">
@@ -26,7 +26,7 @@
           <label>{{ $t('contact.form.message') }}</label>
           <textarea v-model="form.message" rows="4" :placeholder="$t('contact.form.message')" required></textarea>
         </div>
-        <button class="btn" type="submit">{{ $t('contact.form.submit') }}</button>
+        <button class="btn btn-primary" type="submit">{{ $t('contact.form.submit') }}</button>
       </form>
     </div>
   </section>
@@ -54,44 +54,54 @@ function onSubmit() {
   margin: 0 0 10px;
 }
 .intro {
-  color: #6b7280;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 12px;
+  gap: 20px;
 }
 .card {
   grid-column: span 12;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 14px;
-  background: #fff;
 }
 .info {
-  margin: 8px 0 0;
+  margin: 12px 0 0;
   padding: 0 0 0 16px;
+  color: var(--text);
+}
+.info li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+.info strong {
+  color: var(--primary);
 }
 .form .row {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+}
+.form label {
+  color: var(--text);
+  font-weight: 500;
 }
 input, textarea {
-  padding: 8px 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
   font: inherit;
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
-.btn {
-  padding: 10px 14px;
-  border: none;
-  border-radius: 8px;
-  background: #2563eb;
-  color: #fff;
-  cursor: pointer;
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(34,211,238,0.15);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--muted);
 }
 @media (min-width: 768px) {
   .card:first-child { grid-column: span 4; }

@@ -1,79 +1,65 @@
 <template>
   <section class="cases">
-    <h1>{{ $t('cases.title') }}</h1>
-    <p class="intro">{{ $t('cases.intro') }}</p>
-
-    <ul class="list">
-      <li class="item">
-        <div class="badge">{{ $t('cases.list.a.category') }}</div>
-        <div class="detail">
-          <h3>{{ $t('cases.list.a.name') }}</h3>
-          <p>{{ $t('cases.list.a.desc') }}</p>
+    <h1 class="gradient-text">{{ $t('cases.title') }}</h1>
+    <div class="grid">
+      <RouterLink
+        v-for="c in list"
+        :key="c.slug"
+        class="card case-card"
+        :to="`/cases/${c.slug}`"
+      >
+        <h3>{{ c.title[currentLang] }}</h3>
+        <p class="text-muted">{{ c.summary[currentLang] }}</p>
+        <div class="meta">
+          <span class="pill">{{ c.industry[currentLang] }}</span>
+          <span v-for="(t, i) in c.tags?.[currentLang] || []" :key="i" class="pill">{{ t }}</span>
         </div>
-      </li>
-      <li class="item">
-        <div class="badge">{{ $t('cases.list.b.category') }}</div>
-        <div class="detail">
-          <h3>{{ $t('cases.list.b.name') }}</h3>
-          <p>{{ $t('cases.list.b.desc') }}</p>
-        </div>
-      </li>
-      <li class="item">
-        <div class="badge">{{ $t('cases.list.c.category') }}</div>
-        <div class="detail">
-          <h3>{{ $t('cases.list.c.name') }}</h3>
-          <p>{{ $t('cases.list.c.desc') }}</p>
-        </div>
-      </li>
-    </ul>
+      </RouterLink>
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
+// 案例列表：从数据源渲染，支持点击进入详情页
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { listCases } from '../data/cases';
+
+const { locale } = useI18n();
+const list = computed(() => listCases());
+const currentLang = computed(() => locale.value as 'zh' | 'en');
 </script>
 
 <style scoped>
-.cases h1 {
-  margin: 0 0 10px;
-}
-.intro {
-  color: #6b7280;
-  margin-bottom: 16px;
-}
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.cases h1 { margin: 0 0 14px; }
+.grid {
+  margin-top: 12px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 12px;
+  gap: 14px;
 }
-.item {
+.case-card {
   grid-column: span 12;
-  display: flex;
-  gap: 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 14px;
-  background: #fff;
+  display: block;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .2s ease;
 }
-.badge {
-  flex: 0 0 auto;
-  padding: 6px 10px;
+.case-card:hover { transform: translateY(-2px); }
+.case-card h3 { margin: 0 0 6px; color: #fff; }
+.case-card p { margin: 0; }
+.meta { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+.pill {
+  padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(37,99,235,0.1);
-  color: #2563eb;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: #E5E7EB;
   font-size: 12px;
-  height: fit-content;
 }
-.detail h3 {
-  margin: 0 0 6px;
+@media (min-width: 640px) {
+  .case-card { grid-column: span 6; }
 }
-.detail p {
-  margin: 0;
-  color: #374151;
-}
-@media (min-width: 768px) {
-  .item { grid-column: span 6; }
+@media (min-width: 1024px) {
+  .case-card { grid-column: span 4; }
 }
 </style>
