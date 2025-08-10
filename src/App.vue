@@ -2,7 +2,7 @@
   <div class="layout">
     <header class="site-header">
       <nav class="nav container">
-        <RouterLink class="brand" to="/">ArtisanCloud</RouterLink>
+        <RouterLink class="brand" to="/">{{ $t('brand.name') }}</RouterLink>
         <div class="links">
           <RouterLink to="/">{{ $t('nav.home') }}</RouterLink>
           <RouterLink to="/products">{{ $t('nav.products') }}</RouterLink>
@@ -24,7 +24,7 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container">© {{ year }} ArtisanCloud</div>
+      <div class="container">© {{ year }} {{ $t('brand.name') }}</div>
     </footer>
   </div>
 </template>

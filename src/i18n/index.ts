@@ -2,6 +2,9 @@ import { createI18n } from 'vue-i18n';
 
 const messages = {
   zh: {
+    brand: {
+      name: '元匠'
+    },
     nav: {
       home: '首页',
       products: '产品介绍',
@@ -117,6 +120,9 @@ const messages = {
     }
   },
   en: {
+    brand: {
+      name: 'ArtisanCloud'
+    },
     nav: {
       home: 'Home',
       products: 'Products',
