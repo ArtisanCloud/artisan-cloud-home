@@ -81,6 +81,7 @@ const currentLang = computed(() => locale.value as 'zh' | 'en');
 
 function getCaseIcon(slug: string): string {
   const icons: Record<string, string> = {
+    'pawx-marketing-agent': '💡',
     'retail-growth-agent': '📈',
     'media-intl-distribution': '🌐'
   };

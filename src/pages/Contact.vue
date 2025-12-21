@@ -1,110 +1,119 @@
 <template>
-  <section class="contact">
-    <h1 class="gradient-text">{{ $t('contact.title') }}</h1>
-    <p class="intro text-muted">{{ $t('contact.intro') }}</p>
+  <section class="contact-qr">
+    <div class="container">
+      <h1 class="gradient-text">{{ $t('contact.title') }}</h1>
+      <p class="intro text-muted">{{ $t('contact.intro') }}</p>
 
-    <div class="grid">
-      <div class="card">
-        <h3>{{ $t('contact.infoLabel') }}</h3>
-        <ul class="info">
-          <li><strong>{{ $t('contact.email') }}:</strong> contact@artisancloud.com</li>
-          <li><strong>{{ $t('contact.phone') }}:</strong> +86-010-12345678</li>
-        </ul>
+      <div class="qr-card">
+        <div class="qr-wrapper">
+          <img src="/images/wx-qr-code.jpg" alt="WeChat QR Code" class="qr-code" />
+          <div class="qr-glow"></div>
+        </div>
+        
+        <div class="qr-instructions">
+          <h3>{{ $t('contact.qrTitle') }}</h3>
+          <p class="instruction-text" v-html="$t('contact.qrInstruction')"></p>
+          <div class="tips">
+            <p>{{ $t('contact.qrTip') }}</p>
+          </div>
+        </div>
       </div>
-
-      <form class="card form" @submit.prevent="onSubmit">
-        <h3>{{ $t('contact.messageLabel') }}</h3>
-        <div class="row">
-          <label>{{ $t('contact.form.name') }}</label>
-          <input v-model="form.name" :placeholder="$t('contact.form.name')" required />
-        </div>
-        <div class="row">
-          <label>{{ $t('contact.form.email') }}</label>
-          <input v-model="form.email" type="email" :placeholder="$t('contact.form.email')" required />
-        </div>
-        <div class="row">
-          <label>{{ $t('contact.form.message') }}</label>
-          <textarea v-model="form.message" rows="4" :placeholder="$t('contact.form.message')" required></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">{{ $t('contact.form.submit') }}</button>
-      </form>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
-
-const form = reactive({
-  name: '',
-  email: '',
-  message: ''
-});
-
-function onSubmit() {
-  // 仅重置表单，真实提交逻辑可后续接入后端或第三方表单服务
-  form.name = '';
-  form.email = '';
-  form.message = '';
-}
+// QR code contact page
 </script>
 
 <style scoped>
-.contact h1 {
-  margin: 0 0 10px;
+.contact-qr {
+  text-align: center;
+  padding: 40px 0 80px;
 }
+
 .intro {
-  margin-bottom: 24px;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 20px;
-}
-.card {
-  grid-column: span 12;
-}
-.info {
-  margin: 12px 0 0;
-  padding: 0 0 0 16px;
-  color: var(--text);
-}
-.info li {
-  margin-bottom: 8px;
-  line-height: 1.6;
-}
-.info strong {
-  color: var(--primary);
-}
-.form .row {
+
+.qr-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  padding: 48px 32px;
+  max-width: 480px;
+  margin: 0 auto;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  align-items: center;
+}
+
+.qr-wrapper {
+  position: relative;
+  padding: 12px;
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+
+.qr-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(8px);
+}
+
+.qr-instructions h3 {
+  font-size: 24px;
   margin-bottom: 16px;
+  color: #fff;
 }
-.form label {
+
+.instruction-text {
+  font-size: 16px;
   color: var(--text);
-  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 24px;
 }
-input, textarea {
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: rgba(255,255,255,0.03);
-  color: var(--text);
-  font: inherit;
-  transition: border-color .2s ease, box-shadow .2s ease;
+
+.highlight {
+  color: var(--primary);
+  font-weight: 600;
 }
-input:focus, textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(34,211,238,0.15);
-}
-input::placeholder, textarea::placeholder {
+
+.tips {
+  font-size: 14px;
   color: var(--muted);
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
-@media (min-width: 768px) {
-  .card:first-child { grid-column: span 4; }
-  .form { grid-column: span 8; }
+
+.alternative-contact {
+  margin-top: 32px;
+}
+
+.link-muted {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.link-muted:hover {
+  color: var(--primary);
 }
 </style>

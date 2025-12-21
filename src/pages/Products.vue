@@ -55,10 +55,10 @@ const currentLang = computed(() => locale.value as 'zh' | 'en');
 
 function getProductIcon(slug: string): string {
   const icons: Record<string, string> = {
-    'corex': '⚡',
-    'powerx': '🚀',
+    'powerx-base': '⚡',
+    'scrm': '🚀',
     'mediax': '🎬',
-    'powerwechat': '💬'
+    'mall': '🛍️'
   };
   return icons[slug] || '🔧';
 }

@@ -3,7 +3,7 @@ import { createI18n } from 'vue-i18n';
 const messages = {
   zh: {
     brand: {
-      name: '元匠'
+      name: '元匠科技'
     },
     nav: {
       home: '首页',
@@ -111,6 +111,9 @@ const messages = {
       phone: '电话',
       infoLabel: '联系信息',
       messageLabel: '留言',
+      qrTitle: '扫码联系我们',
+      qrInstruction: '扫码添加微信时，请备注您感兴趣的产品，<br>例如：<span class="highlight">“对PowerX感兴趣”</span>',
+      qrTip: '我们将安排专属顾问为您服务',
       form: {
         name: '姓名',
         email: '邮箱',
@@ -229,6 +232,9 @@ const messages = {
       phone: 'Phone',
       infoLabel: 'Info',
       messageLabel: 'Message',
+      qrTitle: 'Scan to Contact Us',
+      qrInstruction: 'Please add a remark about the product you are interested in when adding us on WeChat, <br>e.g., <span class="highlight">"Interested in PowerX"</span>',
+      qrTip: 'We will assign a dedicated consultant to assist you',
       form: {
         name: 'Name',
         email: 'Email',

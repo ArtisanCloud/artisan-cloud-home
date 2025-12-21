@@ -16,7 +16,11 @@
             </div>
           </div>
           <div class="hero-visual">
-            <div class="product-icon-large">
+            <div v-if="product.heroImage" class="product-hero-image">
+              <img :src="product.heroImage" :alt="product.name[currentLang]" />
+              <div class="image-glow"></div>
+            </div>
+            <div v-else class="product-icon-large">
               <div class="icon-bg"></div>
               <div class="icon-content">{{ getProductIcon(product.slug) }}</div>
               <div class="icon-glow"></div>
@@ -134,10 +138,10 @@ const architectureLayers = computed(() =>
 
 function getProductIcon(slug: string): string {
   const icons: Record<string, string> = {
-    'corex': '⚡',
-    'powerx': '🚀',
+    'powerx-base': '⚡',
+    'scrm': '🚀',
     'mediax': '🎬',
-    'powerwechat': '💬'
+    'mall': '🛍️'
   };
   return icons[slug] || '🔧';
 }
@@ -202,6 +206,34 @@ function getProductIcon(slug: string): string {
   position: relative;
   width: 160px;
   height: 160px;
+}
+
+.product-hero-image {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: var(--shadow-md);
+}
+
+.product-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.product-hero-image:hover img {
+  transform: scale(1.02);
+}
+
+.image-glow {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 40px rgba(34,211,238,0.1);
+  pointer-events: none;
 }
 
 .icon-bg {

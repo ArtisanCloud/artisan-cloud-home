@@ -1,15 +1,15 @@
-// 案例数据模块（占位数据+类型与查询方法）
+// 案例数据模块
 // 用途：用于 /cases 列表与 /cases/:slug 详情渲染
 
 export type Case = {
   slug: string;             // URL 标识
-  clientName: { zh: string; en: string };       // 客户名称（可匿名化）
+  clientName: { zh: string; en: string };       // 客户名称
   industry: { zh: string; en: string };         // 行业
   title: { zh: string; en: string };            // 标题
   summary: { zh: string; en: string };          // 摘要
   challenge: { zh: string; en: string };        // 挑战/痛点
-  solution: { zh: string; en: string };         // 方案（关联产品/能力）
-  results: { zh: string[]; en: string[] };        // 效果指标（要点）
+  solution: { zh: string; en: string };         // 方案
+  results: { zh: string[]; en: string[] };        // 效果指标
   testimonial?: {
     author: string;
     role?: { zh: string; en: string };
@@ -21,94 +21,53 @@ export type Case = {
 
 export const cases: Case[] = [
   {
-    slug: "retail-growth-agent",
+    slug: "pawx-marketing-agent",
     clientName: { 
-      zh: "某头部新零售集团", 
-      en: "Leading New Retail Group" 
+      zh: "数字营销机构", 
+      en: "Digital Marketing Agency" 
     },
-    industry: { zh: "新零售", en: "New Retail" },
+    industry: { zh: "广告营销", en: "Advertising & Marketing" },
     title: { 
-      zh: "面向门店的增长型智能体，提升转化与复购", 
-      en: "Growth-oriented Agent for Stores, Improving Conversion and Repurchase" 
+      zh: "PawX 营销人的智能体", 
+      en: "PawX: The Marketer's Agent" 
     },
     summary: { 
-      zh: "以 PowerX 与 CoreX 为内核，构建营销/运营一体化智能体，实现线索分发、A/B 话术与自动化触达闭环。", 
-      en: "Built integrated marketing/operations agent with PowerX and CoreX core, achieving lead distribution, A/B scripts and automated outreach loop." 
+      zh: "基于 PowerX + MediaX 定制的智能体，专为营销人与广告人打造，实现从洞察到投放的全链路自动化。", 
+      en: "A customized agent based on PowerX + MediaX, designed for marketers and advertisers to automate the entire link from insight to delivery." 
     },
     challenge: { 
-      zh: "多渠道线索质量不一、跟进不及时、门店运营动作难以标准化与度量。", 
-      en: "Inconsistent multi-channel lead quality, untimely follow-ups, difficult to standardize and measure store operations." 
+      zh: "传统营销面临创意产出不稳定、投放渠道分散、数据回流割裂等痛点，难以形成高效闭环，人工成本高昂。", 
+      en: "Traditional marketing faces pain points such as unstable creative output, fragmented delivery channels, and disjointed data feedback, making it difficult to form an efficient closed loop with high labor costs." 
     },
     solution: { 
-      zh: "基于 CoreX 的多 Agent 协同与可视化编排，串联线索解析、策略路由、内容生成与自动触达；以 PowerX 打通 CRM/企微，沉淀 SOP。", 
-      en: "Multi-agent collaboration and visual orchestration based on CoreX, connecting lead parsing, strategy routing, content generation and automated outreach; PowerX integrates CRM/WeChat Work to accumulate SOPs." 
+      zh: "深度整合 PowerX 的业务编排能力与 MediaX 的多模态内容矩阵能力，构建懂策略、会执行的专业智能体助手。", 
+      en: "Deeply integrating PowerX's business orchestration capabilities and MediaX's multi-modal content matrix capabilities to build a professional agent assistant that understands strategy and execution." 
     },
     results: {
       zh: [
-        "线索首次响应时延下降 62%",
-        "转化率提升 18.5%",
-        "门店运营动作数字化覆盖率 90%+"
+        "创意生产效率提升 500%",
+        "全渠道一键分发与排程",
+        "营销 ROI 实时监控与优化"
       ],
       en: [
-        "Lead first response time reduced by 62%",
-        "Conversion rate increased by 18.5%",
-        "Store operation digitization coverage 90%+"
+        "Creative production efficiency increased by 500%",
+        "Omni-channel one-click distribution and scheduling",
+        "Real-time marketing ROI monitoring and optimization"
       ]
     },
     testimonial: {
-      author: "渠道运营负责人",
-      role: { zh: "华东大区", en: "East China Region" },
+      author: "首席营销官 (CMO)",
+      role: { zh: "数字营销部门", en: "Digital Marketing Dept" },
       content: { 
-        zh: "把'要做什么''为什么做'和'谁来做'都丢给智能体，团队执行节奏显著更稳。", 
-        en: "Delegating 'what to do', 'why to do' and 'who does it' to agents, the team execution rhythm is significantly more stable." 
+        zh: "PawX 就像是我们团队里不知疲倦的超级员工，它让创意落地变得前所未有的简单和精准。", 
+        en: "PawX is like a tireless super employee in our team, making creative execution simpler and more precise than ever before." 
       }
     },
     tags: { 
-      zh: ["线索运营", "SOP 自动化", "A/B 实验"], 
-      en: ["Lead Operations", "SOP Automation", "A/B Testing"] 
+      zh: ["营销自动化", "内容矩阵", "全链路"], 
+      en: ["Marketing Automation", "Content Matrix", "Full-link"] 
     },
-    relatedProducts: ["powerx", "corex"]
-  },
-  {
-    slug: "media-intl-distribution",
-    clientName: { 
-      zh: "国际媒体品牌", 
-      en: "International Media Brand" 
-    },
-    industry: { zh: "媒体/内容", en: "Media/Content" },
-    title: { 
-      zh: "多语言内容生成与排产投放的规模化自动化", 
-      en: "Scalable Automation of Multilingual Content Generation and Scheduling" 
-    },
-    summary: { 
-      zh: "以 MediaX 多模态能力，构建从生成、校对到多渠道排程的一体化智能体工作流。", 
-      en: "Built integrated agent workflow from generation, proofreading to multi-channel scheduling with MediaX multi-modal capabilities." 
-    },
-    challenge: { 
-      zh: "多语言多渠道发布节奏复杂，人工工作量大且一致性难保障。", 
-      en: "Complex multi-language multi-channel publishing rhythm, heavy manual workload and difficult to ensure consistency." 
-    },
-    solution: { 
-      zh: "MediaX 统一生成与质检规则，自动排程与渠道 API 打通，形成可观测闭环。", 
-      en: "MediaX unified generation and quality control rules, automatic scheduling integrated with channel APIs, forming observable closed loop." 
-    },
-    results: {
-      zh: [
-        "内容产出效率提升 3.2x",
-        "人工校对成本下降 55%",
-        "品牌语气一致性得分提升 20%"
-      ],
-      en: [
-        "Content output efficiency increased by 3.2x",
-        "Manual proofreading costs reduced by 55%",
-        "Brand tone consistency score improved by 20%"
-      ]
-    },
-    tags: { 
-      zh: ["多语言", "多渠道", "品牌一致性"], 
-      en: ["Multilingual", "Multi-channel", "Brand Consistency"] 
-    },
-    relatedProducts: ["mediax"]
+    relatedProducts: ["powerx-base", "mediax"]
   }
 ];
 
