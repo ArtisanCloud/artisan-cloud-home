@@ -3,7 +3,9 @@ export default {
     base: '/'
   },
   generate: {
-    subFolders: true
+    subFolders: true,
+    fallback: true,
+    dir: 'dist' // 确保生成的目录为 `dist`
   },
   server: {
     port: 3002, // default: 3000
@@ -23,7 +25,8 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '元匠信息科技(上海)有限公司，英文名：ArtisanCloud，是一家围绕图像AI影视AI、VR、AR以及元宇宙等为核心的AI科技公司' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'google-adsense-account', content: 'ca-pub-9660680807544080' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -31,6 +34,7 @@ export default {
       { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.artisancloud.cn/npm/@iconscout/unicons@4.0.1/css/line.css' },
       { rel: 'stylesheet', type: 'text/css', href: '/css/style.css' },
       { rel: 'stylesheet', type: 'text/css', href: '/css/colors/default.css' },
+      { rel: 'ads.txt', href: '/ads.txt' }
     ],
     script: []
   },
