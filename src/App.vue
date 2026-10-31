@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="layout" :class="{ 'powerx-layout': isPowerX }">
     <header class="site-header">
       <nav class="nav container">
         <RouterLink class="brand" to="/">{{ $t('brand.name') }}</RouterLink>
@@ -11,7 +11,7 @@
         </div>
         <div class="lang">
           <label class="lang-label">{{ $t('nav.language') }}:</label>
-          <select v-model="currentLocale" @change="onChangeLocale">
+          <select :aria-label="$t('nav.language')" v-model="currentLocale" @change="onChangeLocale">
             <option value="zh">中文</option>
             <option value="en">English</option>
           </select>
@@ -32,8 +32,11 @@
 <script setup lang="ts">
 // 布局与多语言切换
 import { ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 
+const route = useRoute();
+const isPowerX = computed(() => route.name === 'powerx');
 const { locale } = useI18n();
 const currentLocale = ref<string>(locale.value as string);
 const year = computed(() => new Date().getFullYear());
@@ -264,4 +267,24 @@ main.container {
 .rounded { border-radius: var(--radius-sm); }
 .shadow-sm { box-shadow: var(--shadow-sm); }
 .shadow-md { box-shadow: var(--shadow-md); }
+</style>
+<style>
+/* Product-only shell: the company site retains its existing theme. */
+.powerx-layout { background: #fff; color: #20312f; min-height: 100vh; }
+.powerx-layout .site-header { z-index: 30; background: rgba(255,255,255,.95); border-color: #e8eeeb; }
+.powerx-layout .brand { color: #223430; text-shadow: none; font-weight: 600; letter-spacing: -.03em; }
+.powerx-layout .links a { color: #52645e; text-shadow: none; }
+.powerx-layout .links a.router-link-active { color: #176449; background: #e9f4ee; border-color: transparent; box-shadow: none; }
+.powerx-layout .lang-label { color: #52645e; }
+.powerx-layout .lang select { color: #294c3e; background-color: #f5f8f6; border-color: #d9e4dd; }
+.powerx-layout main.container { max-width: none; padding: 0; }
+.powerx-layout .site-footer { border-color: #e8eeeb; color: #61736c; background: #f9fbfa; }
+.powerx-layout a:focus-visible, .powerx-layout select:focus-visible { outline: 3px solid #188357; outline-offset: 4px; }
+@media (max-width: 850px) {
+  .powerx-layout .nav { height: auto; min-height: 64px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 10px; gap: 10px; }
+  .powerx-layout .brand { flex: 1; }
+  .powerx-layout .links { order: 3; flex-basis: 100%; justify-content: space-between; gap: 0; font-size: 14px; }
+  .powerx-layout .links a { padding: 6px 8px; }
+  .powerx-layout .lang-label { display: none; }
+}
 </style>
