@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/build-site.mjs",
     "preview": "vite preview",
-    "test": "node --test scripts/check-site.mjs"
+    "test": "node --test scripts/check-site.mjs",
+    "build:preview": "node scripts/build-site.mjs --preview",
+    "test:seo": "node --test scripts/check-seo.mjs"
   },
   "keywords": [
     "vue3",

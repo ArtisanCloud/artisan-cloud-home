@@ -71,9 +71,22 @@ jobs:
           curl --retry 10 --retry-all-errors --retry-delay 1 --max-time 5 -fsS \
             --output /tmp/artisan-home.html http://127.0.0.1:8080/
           grep -q ArtisanCloud /tmp/artisan-home.html
-          for route in products products/powerwechat cases contact contact-by-email; do
-            curl -fsS "http://127.0.0.1:8080/$route" | cmp - /tmp/artisan-home.html
+          for route in services products products/powerx-base products/powerx products/crm products/mediax products/mediaxstudio products/powerwechat cases developers contact contact-by-email; do
+            canonical="$route"
+            case "$route" in
+              products/powerx) canonical="products/powerx-base" ;;
+              products/mediaxstudio) canonical="products/mediax" ;;
+              contact-by-email) canonical="contact" ;;
+            esac
+            curl -fsS "http://127.0.0.1:8080/$route" --output /tmp/artisan-route.html
+            grep -q '<h1' /tmp/artisan-route.html
+            grep -Fq "rel=\"canonical\" href=\"https://artisan-cloud.com/$canonical\"" /tmp/artisan-route.html
+            grep -Fq 'name="robots" content="index, follow"' /tmp/artisan-route.html
           done
+          curl -fsS http://127.0.0.1:8080/sitemap.xml | grep -Fq 'https://artisan-cloud.com/products/powerx-base'
+          curl -fsS http://127.0.0.1:8080/robots.txt | grep -Fq 'Sitemap: https://artisan-cloud.com/sitemap.xml'
+          test "$(curl -sS -o /tmp/artisan-missing.html -w '%{http_code}' http://127.0.0.1:8080/xdocker-missing-route)" = 404
+          grep -Fq 'name="robots" content="noindex, nofollow"' /tmp/artisan-missing.html
           curl -fsS http://127.0.0.1:8080/ads.txt > /dev/null
           curl -fsS http://127.0.0.1:8080/images/products/px-home.png > /dev/null
           test "$(curl -sS -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/assets/xdocker-missing.js)" = 404

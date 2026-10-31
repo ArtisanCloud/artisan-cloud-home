@@ -91,3 +91,7 @@ There is no approved lead-receipt backend in this draft. A real inquiry pipeline
 
 No GitHub Actions dispatch, production deploy, DNS change, PR or merge is part of this phase. Parent owns synchronization and publication to the existing private Site identity; do not create a new Site for this update.
 - Final parent desktop pass additionally verified services, product catalog and plugin filter (2 results), CRM, MediaXStudio, PowerWeChat, scenarios, legacy contact and developer routes after rendering; no desktop horizontal overflow observed. Mobile remains unverified for the environment reason above. Product/scenario browser titles are currently generic (nonblocking draft limitation).
+
+## SEO and reciprocal documentation phase — 2026-10-31
+
+The owner additionally authorized company/product/documentation crosslinks and SEO/AI-readable information. See `docs/seo-discoverability.md` for the production/preview build contract, prerendered HTML, truthful structured data, canonical routes, noindex safeguards and verification limits. This phase includes the separately approved adaptation of workflow smoke-test assertions for route-specific HTML; triggers, publishing targets, permissions and secrets are unchanged, and no workflow is dispatched.

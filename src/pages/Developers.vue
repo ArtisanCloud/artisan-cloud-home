@@ -104,6 +104,7 @@
   </article>
 </template>
 <script setup lang="ts">
+import { docsUrl } from "../site-config";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 const { locale } = useI18n();
@@ -119,8 +120,8 @@ const resources = [
     ],
     links: [
       {
-        label: ["官方文档", "Official documentation"],
-        href: "https://powerx-doc.artisan-cloud.com",
+        label: ["插件开发文档", "Plugin development docs"],
+        href: docsUrl("/zh/developers/"),
       },
       {
         label: ["公开源码", "Public source"],

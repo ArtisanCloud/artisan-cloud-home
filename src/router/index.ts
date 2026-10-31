@@ -1,4 +1,9 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import {
+  createRouter,
+  createWebHistory,
+  createMemoryHistory,
+  RouteRecordRaw,
+} from "vue-router";
 
 const Home = () => import("../pages/Home.vue");
 const Products = () => import("../pages/Products.vue");
@@ -36,6 +41,15 @@ const routes: RouteRecordRaw[] = [
     name: "contact-by-email",
     component: ContactByEmail,
   },
+  { path: "/index.html", redirect: "/" },
+  {
+    path: "/:staticPath(.*)/index.html",
+    redirect: (to) => ({
+      path: `/${String(to.params.staticPath || "")}`,
+      query: to.query,
+      hash: to.hash,
+    }),
+  },
   {
     path: "/:pathMatch(.*)*",
     name: "not-found",
@@ -43,12 +57,13 @@ const routes: RouteRecordRaw[] = [
   },
 ];
 
-export const router = createRouter({
-  history: createWebHistory(),
-  routes,
-  scrollBehavior(to, _from, savedPosition) {
-    if (savedPosition) return savedPosition;
-    if (to.hash) return { el: to.hash, top: 100 };
-    return { top: 0 };
-  },
-});
+export const createSiteRouter = (server = false) =>
+  createRouter({
+    history: server ? createMemoryHistory() : createWebHistory(),
+    routes,
+    scrollBehavior(to, _from, savedPosition) {
+      if (savedPosition) return savedPosition;
+      if (to.hash) return { el: to.hash, top: 100 };
+      return { top: 0 };
+    },
+  });

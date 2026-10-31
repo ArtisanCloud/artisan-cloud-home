@@ -47,3 +47,5 @@ coverage/
 
 # Tooling
 .codebuddy/
+# Generated SEO verification reports
+.build-reports/

@@ -217,6 +217,7 @@
     </section>
 
     <section id="px-core" class="px-wrap px-core px-section">
+      <DocsLinks />
       <details open>
         <summary>{{ c.openTitle }}</summary>
         <div>
@@ -252,6 +253,7 @@
 </template>
 
 <script setup lang="ts">
+import DocsLinks from "../components/DocsLinks.vue";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { ElButton } from "element-plus";

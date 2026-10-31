@@ -110,6 +110,12 @@
         >
       </div>
     </section>
+    <div
+      v-if="['crm', 'mediax', 'scrm', 'mall'].includes(product.slug)"
+      class="ac-wrap"
+    >
+      <DocsLinks />
+    </div>
   </article>
   <section v-else class="ac-page ac-wrap ac-hero" :lang="lang">
     <p class="ac-kicker">404</p>
@@ -128,6 +134,7 @@
   </section>
 </template>
 <script setup lang="ts">
+import DocsLinks from "../components/DocsLinks.vue";
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";

@@ -108,6 +108,7 @@ import { useI18n } from "vue-i18n";
 import { ElButton } from "element-plus";
 import "element-plus/es/components/button/style/css";
 import "./styles/site.css";
+import { applySeo } from "./seo-client";
 const route = useRoute();
 const { locale } = useI18n();
 const zh = computed(() => locale.value !== "en");
@@ -139,11 +140,11 @@ watch(
   },
 );
 watch(
-  [lang, () => route.name],
+  [lang, () => route.fullPath],
   () => {
+    if (typeof document === "undefined") return;
     document.documentElement.lang = lang.value;
-    const nav = navigation.find((item) => item.to === route.path);
-    document.title = `${isPowerX.value ? "PowerX" : nav ? (zh.value ? nav.zh : nav.en) : zh.value ? "产品与业务" : "Products & business"} · ArtisanCloud`;
+    applySeo(route.path, zh.value ? "zh" : "en");
   },
   { immediate: true },
 );

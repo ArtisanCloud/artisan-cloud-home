@@ -94,9 +94,11 @@
         <span aria-hidden="true">→</span></RouterLink
       >
     </section>
+    <div class="ac-wrap"><DocsLinks /></div>
   </article>
 </template>
 <script setup lang="ts">
+import DocsLinks from "../components/DocsLinks.vue";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { ElButton } from "element-plus";

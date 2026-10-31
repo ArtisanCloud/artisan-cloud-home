@@ -24,19 +24,21 @@ const messages = {
     },
   },
 };
-const defaultLocale = (() => {
+export function preferredLocale(): "zh" | "en" {
+  if (typeof window === "undefined") return "zh";
   try {
     const saved = localStorage.getItem("locale");
     if (saved === "zh" || saved === "en") return saved;
   } catch {
-    /* Locale switching works when storage is unavailable. */
+    /* Storage is optional. */
   }
   return navigator.language?.toLowerCase().startsWith("zh") ? "zh" : "en";
-})();
-export const i18n = createI18n({
-  legacy: false,
-  globalInjection: true,
-  locale: defaultLocale,
-  fallbackLocale: "en",
-  messages,
-});
+}
+export const createSiteI18n = (locale: "zh" | "en" = preferredLocale()) =>
+  createI18n({
+    legacy: false,
+    globalInjection: true,
+    locale,
+    fallbackLocale: "en",
+    messages,
+  });
