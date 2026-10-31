@@ -51,3 +51,43 @@ The Oct 12 concept image was visually inspected as composition inspiration only.
 - Not completed: rendered browser / responsive / keyboard / screen-reader acceptance. Local Chromium startup was blocked by process-socket restrictions; the separate cloud browser could not reach the local Vite server. No screenshots were produced. Build success is not visual acceptance.
 - No lint or test script is configured in the existing package. No staging/container/TLS/DNS checks were performed.
 - Before release, inspect Chinese and English at 320/390/768/1440px, all three scenario states, keyboard focus, expanded disclosures, bottom CTA to contact (including Back), QR rendering, deep-link refresh and reduced motion on a reachable preview/stage.
+
+---
+
+## Full-site draft phase — 2026-10-31
+
+The sections above describe the initial PowerX-only phase. The owner subsequently approved extending the accepted clean/light/green design across the company site, in this order: company home, services/contact, products, scenarios and developer entry. This phase supersedes the earlier “other pages unchanged” scope for the website UI only; production, deployment workflows, DNS, credentials and server configuration remain outside scope.
+
+### Delivered routes
+
+- `/`: company positioning, three business needs, product entry points, delivery approach. Removed unsupported 85% / 60% / 24/7 claims.
+- `/services`: proposed discovery, integration and engineering engagement, delivery checkpoints and responsibility boundaries.
+- `/products`: filterable six-product catalog; existing PowerX route preserved.
+- `/products/crm`, `/products/mediax` (lookup alias `mediaxstudio`), `/products/scrm`, `/products/mall`, `/products/powerwechat`: bilingual purpose, fit, discussion scope and prerequisites; no private repository links.
+- `/cases` and preserved `/cases/pawx-marketing-agent`: clearly labelled illustrative scenarios, plus customer-follow-up and commerce scenarios. Removed anonymous testimonial and unsupported 500% claim; none is presented as a verified customer result.
+- `/developers`: existing public PowerX and PowerWeChat documentation, repositories and tutorial entry points.
+- `/contact`: existing QR channel plus browser-local inquiry brief preview/copy/TXT download. `/contact-by-email` now safely reuses this page; it no longer clears a bogus submission form.
+- Unknown routes have a useful recovery page. Shared mobile menu, locale selection, footer, skip link and route scroll restoration apply across the site.
+
+### Evidence and publication boundaries
+
+- Public PowerX positioning and maturity: same pinned `f99333ccd80eb3c2467fe6cc9009917340556424` sources above.
+- Public PowerWeChat overview: `https://github.com/ArtisanCloud/PowerWeChat/blob/64653fe2163972c4d6bf84b2222872596a156545/README.md`; docs `https://powerwechat.artisan-cloud.com/zh/start/`; tutorial `https://github.com/ArtisanCloud/power-wechat-tutorial`.
+- CRM and MediaXStudio paid positioning is owner-confirmed. No unverified feature readiness, automated-channel coverage, pricing, licensed availability or private source details are published.
+- Existing website case data lacked verifiable attribution and permission; retained material is reframed as a scenario, not customer proof. Real case publication requires customer permission, attributable facts and measurement context.
+- The QR image is a pre-existing contact asset. Its display/download works; actual WeChat identity, account availability, receipt and response time are not proven by the website.
+
+### Contact closure still requiring decisions
+
+There is no approved lead-receipt backend in this draft. A real inquiry pipeline needs a verified receiving destination or CRM endpoint; authorization and secure server-side credentials; field/consent/retention requirements; an assigned owner; delivery failure handling; and receipt/status semantics. No external lead service, database, email recipient or account was invented. The current brief is explicitly unsent, not uploaded or persisted, and under the visitor's control.
+
+### Checks and review
+
+- `npm test`: ten Node tests cover catalog identity, bilingual data completeness, historical route preservation, literal navigation targets, related products, contact no-transport/no-persistence contract, removal of unsupported claims, scroll/recovery routing, local assets and public source-link allowlist.
+- `npm run build`, `tsc --noEmit`, temporary `vue-tsc --noEmit`, `git diff --check`.
+- Independent review identified low-contrast small labels; shared notes/footer/contact placeholders and informational labels were darkened without changing the light visual direction.
+- Supported Sites preview at the daemon-returned URL became available for this phase. Parent observed desktop home rendering, Chinese/English switch, inquiry draft/copy with explicit unsent status, and navigation-to-services scroll reset. These checks supersede the initial phase's total browser-blocked status, but do not imply full device/accessibility/backend acceptance.
+- Narrow-device QA was attempted through supported browser tooling, but the exposed browser has no viewport resize API and organization policy blocks DevTools device emulation. No mobile pass is claimed. Full responsive/device verification, external QR/account receipt and production deployment remain separate checks. No browser screenshot deliverable was requested.
+
+No GitHub Actions dispatch, production deploy, DNS change, PR or merge is part of this phase. Parent owns synchronization and publication to the existing private Site identity; do not create a new Site for this update.
+- Final parent desktop pass additionally verified services, product catalog and plugin filter (2 results), CRM, MediaXStudio, PowerWeChat, scenarios, legacy contact and developer routes after rendering; no desktop horizontal overflow observed. Mobile remains unverified for the environment reason above. Product/scenario browser titles are currently generic (nonblocking draft limitation).

@@ -1,290 +1,150 @@
 <template>
-  <div class="layout" :class="{ 'powerx-layout': isPowerX }">
+  <div class="layout" :class="{ 'powerx-layout': isPowerX }" :lang="lang">
+    <a class="skip-link" href="#main-content">{{
+      zh ? "跳到主要内容" : "Skip to content"
+    }}</a>
     <header class="site-header">
-      <nav class="nav container">
-        <RouterLink class="brand" to="/">{{ $t('brand.name') }}</RouterLink>
-        <div class="links">
-          <RouterLink to="/">{{ $t('nav.home') }}</RouterLink>
-          <RouterLink to="/products">{{ $t('nav.products') }}</RouterLink>
-          <RouterLink to="/cases">{{ $t('nav.cases') }}</RouterLink>
-          <RouterLink to="/contact">{{ $t('nav.contact') }}</RouterLink>
+      <nav
+        class="ac-wrap site-nav"
+        :aria-label="zh ? '主导航' : 'Main navigation'"
+      >
+        <RouterLink class="brand" to="/" aria-label="ArtisanCloud"
+          ><span>Artisan<span class="brand-cloud">Cloud</span></span
+          ><small>{{
+            zh ? "元匠科技" : "Build with purpose"
+          }}</small></RouterLink
+        >
+        <div
+          class="site-links"
+          :class="{ 'is-open': menuOpen }"
+          id="site-navigation"
+        >
+          <RouterLink v-for="item in navigation" :key="item.to" :to="item.to">{{
+            zh ? item.zh : item.en
+          }}</RouterLink>
         </div>
-        <div class="lang">
-          <label class="lang-label">{{ $t('nav.language') }}:</label>
-          <select :aria-label="$t('nav.language')" v-model="currentLocale" @change="onChangeLocale">
+        <div class="site-tools">
+          <label class="ac-sr-only" for="site-language">{{
+            zh ? "语言" : "Language"
+          }}</label>
+          <select
+            id="site-language"
+            v-model="currentLocale"
+            @change="onChangeLocale"
+          >
             <option value="zh">中文</option>
-            <option value="en">English</option>
+            <option value="en">EN</option>
           </select>
+          <ElButton
+            class="menu-toggle"
+            :aria-expanded="menuOpen"
+            aria-controls="site-navigation"
+            @click="menuOpen = !menuOpen"
+            >{{
+              menuOpen ? (zh ? "关闭" : "Close") : zh ? "菜单" : "Menu"
+            }}</ElButton
+          >
         </div>
       </nav>
     </header>
-
-    <main class="container">
-      <RouterView />
-    </main>
-
+    <main id="main-content" tabindex="-1"><RouterView /></main>
     <footer class="site-footer">
-      <div class="container">© {{ year }} {{ $t('brand.name') }}</div>
+      <div class="ac-wrap footer-grid">
+        <div>
+          <span class="footer-name">{{
+            zh ? "一起把下一步做好。" : "Build the next step together."
+          }}</span>
+          <p>
+            {{
+              zh
+                ? "让想法成为可以持续演进的业务。"
+                : "Build ideas into a business that can keep evolving."
+            }}
+          </p>
+        </div>
+        <div>
+          <span>{{ zh ? "认识我们" : "Explore" }}</span
+          ><RouterLink to="/services">{{
+            zh ? "服务与交付" : "Services & delivery"
+          }}</RouterLink
+          ><RouterLink to="/products">{{
+            zh ? "产品与方案" : "Products & solutions"
+          }}</RouterLink
+          ><RouterLink to="/cases">{{
+            zh ? "业务场景" : "Business scenarios"
+          }}</RouterLink>
+        </div>
+        <div>
+          <span>{{ zh ? "开始连接" : "Connect" }}</span
+          ><RouterLink to="/developers">{{
+            zh ? "开发者入口" : "For developers"
+          }}</RouterLink
+          ><RouterLink to="/contact">{{
+            zh ? "聊聊业务需求" : "Let’s talk business"
+          }}</RouterLink
+          ><a
+            href="https://github.com/ArtisanCloud"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub ↗</a
+          >
+        </div>
+      </div>
+      <div class="ac-wrap footer-bottom">
+        <span>© {{ year }} ArtisanCloud</span
+        ><span>{{
+          zh
+            ? "产品能力与交付范围以具体评估为准。"
+            : "Product capabilities and delivery scope are subject to assessment."
+        }}</span>
+      </div>
     </footer>
   </div>
 </template>
-
 <script setup lang="ts">
-// 布局与多语言切换
-import { ref, computed } from 'vue';
-import { useRoute } from 'vue-router';
-import { useI18n } from 'vue-i18n';
-
+import { computed, ref, watch } from "vue";
+import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
+import { ElButton } from "element-plus";
+import "element-plus/es/components/button/style/css";
+import "./styles/site.css";
 const route = useRoute();
-const isPowerX = computed(() => route.name === 'powerx');
 const { locale } = useI18n();
-const currentLocale = ref<string>(locale.value as string);
-const year = computed(() => new Date().getFullYear());
-
+const zh = computed(() => locale.value !== "en");
+const lang = computed(() => (zh.value ? "zh-CN" : "en"));
+const currentLocale = ref(String(locale.value));
+const isPowerX = computed(() => route.name === "powerx");
+const menuOpen = ref(false);
+const year = new Date().getFullYear();
+const navigation = [
+  { to: "/", zh: "首页", en: "Home" },
+  { to: "/services", zh: "服务", en: "Services" },
+  { to: "/products", zh: "产品", en: "Products" },
+  { to: "/cases", zh: "场景", en: "Scenarios" },
+  { to: "/developers", zh: "开发者", en: "Developers" },
+  { to: "/contact", zh: "联系我们", en: "Contact" },
+];
 function onChangeLocale() {
   locale.value = currentLocale.value;
   try {
-    localStorage.setItem('locale', currentLocale.value);
-  } catch (e) {
-    // 忽略本地存储异常
+    localStorage.setItem("locale", currentLocale.value);
+  } catch {
+    /* Storage is optional. */
   }
 }
+watch(
+  () => route.fullPath,
+  () => {
+    menuOpen.value = false;
+  },
+);
+watch(
+  [lang, () => route.name],
+  () => {
+    document.documentElement.lang = lang.value;
+    const nav = navigation.find((item) => item.to === route.path);
+    document.title = `${isPowerX.value ? "PowerX" : nav ? (zh.value ? nav.zh : nav.en) : zh.value ? "产品与业务" : "Products & business"} · ArtisanCloud`;
+  },
+  { immediate: true },
+);
 </script>
-
-<style>
-:root {
-  --bg: #0B0E1A;           /* 深色科技背景 */
-  --surface: rgba(255,255,255,0.05);
-  --text: #E5E7EB;         /* 主文字 */
-  --muted: #9CA3AF;        /* 次级文字 */
-  --primary: #22D3EE;      /* 霓青 */
-  --secondary: #A78BFA;    /* 霓紫 */
-  --border: #1F2430;       /* 深色描边 */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --shadow-sm: 0 1px 0 rgba(255,255,255,0.03);
-  --shadow-md: 0 1px 0 rgba(255,255,255,0.03), 0 8px 24px rgba(0,0,0,0.35);
-  --glow-cyan: 0 0 12px rgba(34,211,238,0.35), 0 0 28px rgba(34,211,238,0.18);
-  --glow-purple: 0 0 12px rgba(167,139,250,0.35), 0 0 28px rgba(167,139,250,0.18);
-}
-
-/* Reset */
-* { box-sizing: border-box; }
-html, body, #app { height: 100%; }
-body {
-  margin: 0;
-  color: var(--text);
-  background:
-    radial-gradient(800px 400px at 20% 0%, rgba(34,211,238,0.08), transparent 60%),
-    radial-gradient(800px 400px at 80% 0%, rgba(167,139,250,0.08), transparent 60%),
-    radial-gradient(2px 2px at 30% 20%, rgba(255,255,255,0.07), transparent 50%),
-    linear-gradient(#0B0E1A, #0B0E1A);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    "Noto Sans", "Noto Sans CJK SC", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* 排版 */
-h1, h2, h3 {
-  margin: 0 0 12px;
-  letter-spacing: 0.01em;
-}
-h1 { font-size: 42px; line-height: 1.15; font-weight: 800; }
-h2 { font-size: 28px; line-height: 1.25; font-weight: 700; }
-h3 { font-size: 20px; line-height: 1.35; font-weight: 600; }
-p { line-height: 1.8; color: var(--text); }
-
-.gradient-text {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* 容器 */
-.container {
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 顶栏 */
-.site-header {
-  position: sticky;
-  top: 0;
-  background: rgba(9, 12, 22, 0.65);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav {
-  height: 64px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.brand {
-  font-weight: 800;
-  text-decoration: none;
-  color: #fff;
-  letter-spacing: 0.04em;
-  margin-right: 12px;
-  text-shadow: var(--glow-purple);
-}
-
-.links {
-  display: flex;
-  gap: 14px;
-  flex: 1;
-}
-
-.links a {
-  text-decoration: none;
-  color: var(--text);
-  padding: 8px 10px;
-  border-radius: var(--radius-sm);
-  border: 1px solid transparent;
-  transition: all .2s ease;
-}
-.links a:hover {
-  color: #fff;
-  text-shadow: var(--glow-cyan);
-}
-.links a.router-link-active {
-  background: linear-gradient(90deg, rgba(34,211,238,0.12), rgba(167,139,250,0.12));
-  color: #fff;
-  border-color: rgba(255,255,255,0.12);
-  box-shadow: var(--glow-cyan);
-}
-
-.lang {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.lang-label {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.lang select {
-  appearance: none;
-  padding: 6px 28px 6px 10px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
-  color: var(--text);
-  font-size: 14px;
-  background-image:
-    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
-    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
-  background-position:
-    calc(100% - 18px) calc(50% - 3px),
-    calc(100% - 12px) calc(50% - 3px);
-  background-size: 6px 6px, 6px 6px;
-  background-repeat: no-repeat;
-}
-
-/* 主体与页脚 */
-main.container {
-  padding: 28px 20px 64px;
-}
-
-.site-footer {
-  border-top: 1px solid var(--border);
-  padding: 16px 0;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-/* 按钮 */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 10px 16px;
-  font-size: 14px;
-  border-radius: var(--radius-sm);
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: all .2s ease;
-}
-.btn-primary {
-  background: linear-gradient(90deg, rgba(34,211,238,0.15), rgba(167,139,250,0.15));
-  color: #fff;
-  border-color: rgba(255,255,255,0.16);
-  box-shadow: var(--glow-cyan);
-}
-.btn-primary:hover {
-  background: linear-gradient(90deg, rgba(34,211,238,0.25), rgba(167,139,250,0.25));
-  transform: translateY(-1px);
-}
-.btn-outline {
-  background: transparent;
-  color: var(--text);
-  border-color: rgba(255,255,255,0.18);
-}
-.btn-outline:hover {
-  border-color: rgba(255,255,255,0.28);
-  box-shadow: var(--glow-purple);
-}
-
-/* 卡片 */
-.card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(8px);
-  padding: 16px;
-}
-
-/* 英雄与分区 */
-.section {
-  padding: 56px 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-.hero {
-  padding: 80px 0 40px;
-  text-align: center;
-}
-.hero p {
-  color: var(--muted);
-  max-width: 760px;
-  margin: 12px auto 0;
-}
-
-/* 工具类 */
-.text-muted { color: var(--muted); }
-.text-primary { color: var(--primary); }
-.text-secondary { color: var(--secondary); }
-.border { border: 1px solid var(--border); border-radius: var(--radius-sm); }
-.rounded { border-radius: var(--radius-sm); }
-.shadow-sm { box-shadow: var(--shadow-sm); }
-.shadow-md { box-shadow: var(--shadow-md); }
-</style>
-<style>
-/* Product-only shell: the company site retains its existing theme. */
-.powerx-layout { background: #fff; color: #20312f; min-height: 100vh; }
-.powerx-layout .site-header { z-index: 30; background: rgba(255,255,255,.95); border-color: #e8eeeb; }
-.powerx-layout .brand { color: #223430; text-shadow: none; font-weight: 600; letter-spacing: -.03em; }
-.powerx-layout .links a { color: #52645e; text-shadow: none; }
-.powerx-layout .links a.router-link-active { color: #176449; background: #e9f4ee; border-color: transparent; box-shadow: none; }
-.powerx-layout .lang-label { color: #52645e; }
-.powerx-layout .lang select { color: #294c3e; background-color: #f5f8f6; border-color: #d9e4dd; }
-.powerx-layout main.container { max-width: none; padding: 0; }
-.powerx-layout .site-footer { border-color: #e8eeeb; color: #61736c; background: #f9fbfa; }
-.powerx-layout a:focus-visible, .powerx-layout select:focus-visible { outline: 3px solid #188357; outline-offset: 4px; }
-@media (max-width: 850px) {
-  .powerx-layout .nav { height: auto; min-height: 64px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 10px; gap: 10px; }
-  .powerx-layout .brand { flex: 1; }
-  .powerx-layout .links { order: 3; flex-basis: 100%; justify-content: space-between; gap: 0; font-size: 14px; }
-  .powerx-layout .links a { padding: 6px 8px; }
-  .powerx-layout .lang-label { display: none; }
-}
-</style>

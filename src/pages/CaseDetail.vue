@@ -1,734 +1,341 @@
 <template>
-  <section v-if="item" class="case-detail">
-    <!-- Story Header -->
-    <div class="story-header">
-      <div class="container">
-        <div class="header-content">
-          <div class="story-meta">
-            <div class="industry-pill">
-              <span>{{ item.industry[currentLang] }}</span>
-            </div>
-            <div class="story-tags">
-              <span v-for="(t, i) in item.tags?.[currentLang] || []" :key="i" class="tag">{{ t }}</span>
-            </div>
-          </div>
-          
-          <h1 class="story-title">{{ item.title[currentLang] }}</h1>
-          <div class="client-showcase">
-            <div class="client-avatar">
-              <div class="avatar-bg"></div>
-              <span class="client-initial">{{ getClientInitial(item.clientName[currentLang]) }}</span>
-            </div>
-            <div class="client-info">
-              <h2 class="client-name gradient-text">{{ item.clientName[currentLang] }}</h2>
-              <p class="story-tagline text-muted">{{ item.summary[currentLang] }}</p>
-            </div>
-          </div>
-          
-          <div class="header-actions">
-            <RouterLink class="btn btn-primary" to="/contact">{{ $t('home.ctaContact') }}</RouterLink>
-            <RouterLink class="btn btn-outline" to="/cases">{{ $t('cases.detail.backToList') }}</RouterLink>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <!-- Story Journey -->
-      <div class="story-journey">
-        <div class="journey-step">
-          <div class="step-indicator">
-            <div class="step-number">01</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-content">
-            <h3 class="step-title">{{ $t('cases.detail.challenge') }}</h3>
-            <div class="challenge-card">
-              <div class="challenge-icon">⚠️</div>
-              <p class="challenge-text">{{ item.challenge[currentLang] }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="journey-step">
-          <div class="step-indicator">
-            <div class="step-number">02</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-content">
-            <h3 class="step-title">{{ $t('cases.detail.solution') }}</h3>
-            <div class="solution-card">
-              <div class="solution-visual">
-                <div class="solution-flow">
-                  <div class="flow-node" v-for="i in 3" :key="i">
-                    <div class="node-dot"></div>
-                    <div v-if="i < 3" class="node-connector"></div>
-                  </div>
-                </div>
-              </div>
-              <p class="solution-text">{{ item.solution[currentLang] }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="journey-step">
-          <div class="step-indicator">
-            <div class="step-number">03</div>
-          </div>
-          <div class="step-content">
-            <h3 class="step-title">{{ $t('cases.detail.results') }}</h3>
-            <div class="results-showcase">
-              <div 
-                v-for="(result, i) in item.results[currentLang]" 
-                :key="i" 
-                class="result-metric"
-                :class="`metric-${i % 3}`"
-              >
-                <div class="metric-icon">
-                  <div class="icon-bg"></div>
-                  <span class="metric-symbol">{{ getMetricIcon(i) }}</span>
-                </div>
-                <div class="metric-content">
-                  <div class="metric-value">{{ extractMetricValue(result) }}</div>
-                  <div class="metric-label">{{ extractMetricLabel(result) }}</div>
-                </div>
-                <div class="metric-glow"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Client Testimonial -->
-      <div class="testimonial-section" v-if="item.testimonial">
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <h3 class="section-title gradient-text">{{ $t('cases.detail.testimonial') }}</h3>
-            <div class="quote-decoration">
-              <div class="quote-mark">"</div>
-            </div>
-          </div>
-          
-          <blockquote class="testimonial-quote">
-            {{ item.testimonial?.content[currentLang] }}
-          </blockquote>
-          
-          <div class="testimonial-author">
-            <div class="author-avatar">
-              <div class="avatar-ring"></div>
-              <span class="author-initial">{{ getAuthorInitial(item.testimonial?.author) }}</span>
-            </div>
-            <div class="author-info">
-              <div class="author-name">{{ item.testimonial?.author }}</div>
-              <div class="author-role text-muted" v-if="item.testimonial?.role">
-                {{ item.testimonial?.role[currentLang] }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Related Products -->
-      <div class="related-section" v-if="item.relatedProducts?.length">
-        <h3 class="section-title gradient-text">相关产品</h3>
-        <div class="related-products">
-          <RouterLink 
-            v-for="productSlug in item.relatedProducts" 
-            :key="productSlug"
-            :to="`/products/${productSlug}`"
-            class="related-product"
+  <article class="ac-page scenario-detail" :lang="lang">
+    <template v-if="item">
+      <header class="ac-wrap ac-hero">
+        <RouterLink class="ac-link scenario-back" to="/cases"
+          >← {{ text("所有场景", "All scenarios") }}</RouterLink
+        >
+        <p class="ac-kicker">{{ item.category[lang] }}</p>
+        <h1>{{ item.title[lang] }}</h1>
+        <p class="ac-lead">{{ item.summary[lang] }}</p>
+        <p class="scenario-disclaimer">
+          {{
+            text(
+              "方案场景 · 非客户交付案例 · 不代表功能已端到端实现",
+              "Solution scenario · Not a customer case study · Not a claim of end-to-end implementation",
+            )
+          }}
+        </p>
+      </header>
+      <section class="ac-wrap scenario-context">
+        <div>
+          <span class="scenario-number"
+            >01 / {{ text("工作中的问题", "THE WORKFLOW CHALLENGE") }}</span
           >
-            <div class="product-icon-small">{{ getProductIcon(productSlug) }}</div>
-            <span class="product-name-small">{{ getProductName(productSlug) }}</span>
-          </RouterLink>
+          <h2>
+            {{
+              text(
+                "先理解，为什么需要改变。",
+                "Understand what needs to change.",
+              )
+            }}
+          </h2>
+          <p>{{ item.challenge[lang] }}</p>
         </div>
-      </div>
-
-      <!-- CTA Section -->
-      <div class="case-cta">
-        <div class="cta-content">
-          <h3>{{ currentLang === 'zh' ? '获取类似成功案例' : 'Get Similar Success Story' }}</h3>
-          <p class="text-muted">
-            {{ currentLang === 'zh' ? '联系我们的专家，了解如何为您的业务定制智能体解决方案' : 'Contact our experts to learn how to customize agent solutions for your business' }}
+        <div>
+          <span class="scenario-number"
+            >02 / {{ text("方案思路", "A POSSIBLE APPROACH") }}</span
+          >
+          <h2>
+            {{
+              text(
+                "把讨论落在具体的工作上。",
+                "Ground the discussion in real work.",
+              )
+            }}
+          </h2>
+          <p>{{ item.approach[lang] }}</p>
+        </div>
+      </section>
+      <section class="scenario-flow-band">
+        <div class="ac-wrap ac-section">
+          <p class="ac-kicker">
+            {{ text("流程示意", "ILLUSTRATIVE WORKFLOW") }}
           </p>
-          <RouterLink class="btn btn-primary btn-large" to="/contact">{{ $t('cases.detail.cta') }}</RouterLink>
+          <h2>
+            {{ text("三个环节，逐步确认。", "Three steps to work through.") }}
+          </h2>
+          <ol class="scenario-flow">
+            <li v-for="(step, index) in item.steps" :key="index">
+              <span>0{{ index + 1 }}</span>
+              <h3>{{ step.title[lang] }}</h3>
+              <p>{{ step.description[lang] }}</p>
+            </li>
+          </ol>
         </div>
-        <div class="cta-visual">
-          <div class="success-animation">
-            <div class="success-ring" v-for="i in 3" :key="i"></div>
-          </div>
+      </section>
+      <section class="ac-wrap ac-section scenario-validation">
+        <div>
+          <p class="ac-kicker">{{ text("开始之前", "BEFORE YOU START") }}</p>
+          <h2>{{ text("先准备这些信息。", "Prepare the essentials.") }}</h2>
+          <ul>
+            <li v-for="(line, index) in item.prerequisites" :key="index">
+              {{ line[lang] }}
+            </li>
+          </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section v-else class="container section">
-    <div class="card">
-      <h2>{{ $t('cases.detail.notFound') }}</h2>
-      <p class="text-muted">{{ $t('cases.detail.backToList') }}</p>
-      <RouterLink class="btn btn-outline" to="/cases">{{ $t('nav.cases') }}</RouterLink>
-    </div>
-  </section>
+        <div>
+          <p class="ac-kicker">
+            {{ text("如何判断方向", "HOW TO ASSESS THE APPROACH") }}
+          </p>
+          <h2>
+            {{
+              text(
+                "用问题来验证，\n不预设漂亮的数字。",
+                "Validate with questions,\nnot assumed results.",
+              )
+            }}
+          </h2>
+          <ul>
+            <li v-for="(line, index) in item.reviewQuestions" :key="index">
+              {{ line[lang] }}
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="ac-wrap scenario-related">
+        <div>
+          <h2>
+            {{
+              text(
+                "可以一起了解的产品",
+                "Products to explore alongside this scenario",
+              )
+            }}
+          </h2>
+          <p>
+            {{
+              text(
+                "产品范围、集成方式和可交付能力，需结合项目进一步确认。",
+                "Confirm product scope, integration and deliverable capabilities for the specific project.",
+              )
+            }}
+          </p>
+        </div>
+        <div class="scenario-product-links">
+          <RouterLink
+            v-for="product in item.relatedProducts"
+            :key="product.slug"
+            :to="`/products/${product.slug}`"
+            >{{ product.name }} <span aria-hidden="true">↗</span></RouterLink
+          >
+        </div>
+      </section>
+      <section class="ac-wrap ac-section scenario-contact">
+        <h2>
+          {{
+            text(
+              "把你的工作流程，带进来聊聊。",
+              "Bring your workflow into the conversation.",
+            )
+          }}
+        </h2>
+        <p class="ac-lead">
+          {{
+            text(
+              "从一个问题开始，先明确边界与下一步。",
+              "Start with one problem. Define the boundaries and the next step.",
+            )
+          }}
+        </p>
+        <RouterLink class="ac-button" to="/contact"
+          >{{ text("聊聊业务需求", "Discuss your needs") }}
+          <span aria-hidden="true">→</span></RouterLink
+        >
+      </section>
+    </template>
+    <section v-else class="ac-wrap ac-hero">
+      <p class="ac-kicker">{{ text("业务场景", "BUSINESS SCENARIOS") }}</p>
+      <h1>
+        {{ text("这个场景暂未收录。", "This scenario is not available.") }}
+      </h1>
+      <p class="ac-lead">
+        {{
+          text(
+            "可以返回场景列表，或和我们讨论你的业务问题。",
+            "Return to the scenario collection, or discuss your business question with us.",
+          )
+        }}
+      </p>
+      <RouterLink class="ac-button" to="/cases">{{
+        text("返回场景列表", "Explore scenarios")
+      }}</RouterLink>
+    </section>
+  </article>
 </template>
-
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-import { useI18n } from 'vue-i18n';
-import { getCaseBySlug } from '../data/cases';
-import { getProductBySlug } from '../data/products';
-
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
+import { getCaseBySlug } from "../data/cases";
 const route = useRoute();
 const { locale } = useI18n();
-const slug = computed(() => String(route.params.slug || ''));
-const item = computed(() => getCaseBySlug(slug.value));
-const currentLang = computed(() => locale.value as 'zh' | 'en');
-
-function getClientInitial(name: string): string {
-  return name.charAt(0).toUpperCase();
-}
-
-function getAuthorInitial(name?: string): string {
-  return name ? name.charAt(0).toUpperCase() : 'A';
-}
-
-function getMetricIcon(index: number): string {
-  const icons = ['📈', '💰', '⚡', '🎯', '🚀'];
-  return icons[index % icons.length];
-}
-
-function extractMetricValue(result: string): string {
-  const match = result.match(/(\d+\.?\d*%?)/);
-  return match ? match[1] : '✓';
-}
-
-function extractMetricLabel(result: string): string {
-  return result.replace(/(\d+\.?\d*%?\s*)/, '').trim();
-}
-
-function getProductIcon(slug: string): string {
-  const icons: Record<string, string> = {
-    'corex': '⚡',
-    'powerx': '🚀',
-    'mediax': '🎬',
-    'powerwechat': '💬'
-  };
-  return icons[slug] || '🔧';
-}
-
-function getProductName(slug: string): string {
-  const product = getProductBySlug(slug);
-  return product ? product.name[currentLang.value].split('·')[0].trim() : slug;
-}
+const lang = computed(() => (locale.value === "en" ? "en" : "zh"));
+const text = (zh: string, en: string) => (lang.value === "en" ? en : zh);
+const item = computed(() => getCaseBySlug(String(route.params.slug || "")));
 </script>
-
 <style scoped>
-/* Story Header */
-.story-header {
-  padding: 60px 0 40px;
-  background: 
-    radial-gradient(600px 300px at 30% 0%, rgba(167,139,250,0.12), transparent 70%),
-    radial-gradient(400px 200px at 70% 100%, rgba(34,211,238,0.08), transparent 70%);
-}
-
-.header-content {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.story-meta {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.industry-pill {
-  padding: 8px 16px;
-  background: linear-gradient(135deg, rgba(167,139,250,0.2), rgba(34,211,238,0.2));
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 20px;
-  backdrop-filter: blur(8px);
-}
-
-.industry-pill span {
-  color: var(--secondary);
+.scenario-back {
+  display: inline-block;
+  margin-bottom: 34px;
   font-size: 13px;
-  font-weight: 600;
 }
-
-.story-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+.scenario-detail h1 {
+  max-width: 940px;
 }
-
-.tag {
-  padding: 4px 10px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 12px;
-  color: var(--muted);
+.scenario-disclaimer {
   font-size: 11px;
-  font-weight: 500;
+  color: #66806f;
+  border-left: 2px solid #aac4b3;
+  padding-left: 14px;
+  margin-top: 28px;
 }
-
-.story-title {
-  margin: 0 0 32px;
-  color: #fff;
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.client-showcase {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 32px;
-  padding: 24px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-}
-
-.client-avatar {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  flex-shrink: 0;
-}
-
-.avatar-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: 50%;
-}
-
-.client-initial {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.client-info {
-  text-align: left;
-}
-
-.client-name {
-  margin: 0 0 4px;
-  font-size: 20px;
-}
-
-.story-tagline {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.header-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* Story Journey */
-.story-journey {
-  margin: 60px 0;
-}
-
-.journey-step {
+.scenario-context {
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 32px;
-  margin-bottom: 60px;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding-bottom: 80px;
 }
-
-.step-indicator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.scenario-number {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #5f7168;
+  display: block;
+  margin-bottom: 22px;
 }
-
-.step-number {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: 50%;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 16px;
+.scenario-context h2 {
+  font-size: 28px;
 }
-
-.step-line {
-  width: 2px;
-  height: 60px;
-  background: linear-gradient(180deg, var(--primary), transparent);
-  opacity: 0.3;
+.scenario-context p {
+  font-size: 15px;
 }
-
-.journey-step:last-child .step-line {
-  display: none;
+.scenario-flow-band {
+  background: linear-gradient(125deg, #f3f8f5, #f3f5fa);
 }
-
-.step-title {
-  margin: 0 0 20px;
-  color: var(--primary);
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.challenge-card, .solution-card {
-  padding: 24px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 12px;
-  backdrop-filter: blur(12px);
-}
-
-.challenge-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.challenge-icon {
-  font-size: 24px;
-  flex-shrink: 0;
-}
-
-.challenge-text, .solution-text {
-  margin: 0;
-  color: var(--text);
-  line-height: 1.6;
-}
-
-.solution-visual {
-  margin-bottom: 16px;
-}
-
-.solution-flow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.flow-node {
-  display: flex;
-  align-items: center;
-}
-
-.node-dot {
-  width: 12px;
-  height: 12px;
-  background: var(--primary);
-  border-radius: 50%;
-  box-shadow: var(--glow-cyan);
-}
-
-.node-connector {
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  margin: 0 8px;
-}
-
-/* Results Showcase */
-.results-showcase {
+.scenario-flow {
+  list-style: none;
+  padding: 0;
+  margin: 42px 0 0;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 38px;
 }
-
-.result-metric {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 12px;
-  backdrop-filter: blur(12px);
-  overflow: hidden;
+.scenario-flow li {
+  border-top: 1px solid #cdded3;
+  padding-top: 24px;
 }
-
-.metric-icon {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
-}
-
-.icon-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(34,211,238,0.2), rgba(167,139,250,0.2));
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-.metric-symbol {
-  position: absolute;
-  inset: 0;
-  display: flex;
+.scenario-flow li > span {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-}
-
-.metric-content {
-  flex: 1;
-}
-
-.metric-value {
-  color: var(--primary);
-  font-size: 24px;
-  font-weight: 800;
-  margin-bottom: 4px;
-}
-
-.metric-label {
-  color: var(--text);
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.metric-glow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60px;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(34,211,238,0.1));
-  opacity: 0.6;
-}
-
-/* Testimonial */
-.testimonial-section {
-  margin: 60px 0;
-}
-
-.testimonial-card {
-  padding: 40px 32px;
-  background: linear-gradient(135deg, rgba(167,139,250,0.08), rgba(34,211,238,0.08));
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-  text-align: center;
-}
-
-.testimonial-header {
-  position: relative;
+  border-radius: 50%;
+  color: #527a62;
+  background: #e1eee4;
+  font-size: 10px;
   margin-bottom: 24px;
 }
-
-.quote-decoration {
-  position: absolute;
-  top: -10px;
-  right: 20px;
+.scenario-flow h3 {
+  font-size: 22px;
 }
-
-.quote-mark {
-  font-size: 60px;
-  color: var(--primary);
-  opacity: 0.3;
-  font-family: serif;
+.scenario-flow p {
+  font-size: 14px;
 }
-
-.testimonial-quote {
-  margin: 0 0 24px;
-  color: #fff;
-  font-size: 18px;
-  font-style: italic;
-  line-height: 1.6;
+.scenario-validation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
 }
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+.scenario-validation h2 {
+  font-size: 30px;
+  white-space: pre-line;
 }
-
-.author-avatar {
+.scenario-validation ul {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+}
+.scenario-validation li {
+  border-top: 1px solid #e2e9e3;
+  padding: 16px 0 16px 22px;
   position: relative;
-  width: 48px;
-  height: 48px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #64756f;
 }
-
-.avatar-ring {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
+.scenario-validation li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-}
-
-.author-initial {
+  background: #7c9f87;
   position: absolute;
-  inset: 0;
+  left: 1px;
+  top: 27px;
+}
+.scenario-related {
+  border-top: 1px solid #e1e8e2;
+  border-bottom: 1px solid #e1e8e2;
+  padding-block: 30px;
   display: flex;
+  gap: 30px;
   align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
+  justify-content: space-between;
 }
-
-.author-info {
-  text-align: left;
+.scenario-related h2 {
+  font-size: 20px;
 }
-
-.author-name {
-  color: #fff;
-  font-weight: 600;
-  margin-bottom: 2px;
+.scenario-related p {
+  font-size: 12px;
+  margin-bottom: 0;
 }
-
-.author-role {
+.scenario-product-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.scenario-product-links a {
+  background: #f0f6f1;
+  border: 1px solid #deeadf;
+  border-radius: 8px;
+  padding: 12px 18px;
+  color: #326f4f;
+  text-decoration: none;
   font-size: 13px;
 }
-
-/* Related Products */
-.related-section {
-  margin: 60px 0;
+.scenario-product-links a:hover {
+  border-color: #9cbaa6;
+}
+.scenario-contact {
   text-align: center;
 }
-
-.related-products {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 20px;
-  flex-wrap: wrap;
+.scenario-contact .ac-lead {
+  margin-inline: auto;
+  margin-bottom: 28px;
 }
-
-.related-product {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 20px;
-  text-decoration: none;
-  color: var(--text);
-  font-size: 14px;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(8px);
-}
-
-.related-product:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255,255,255,0.2);
-}
-
-.product-icon-small {
-  font-size: 16px;
-}
-
-/* CTA */
-.case-cta {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  align-items: center;
-  padding: 40px 32px;
-  background: linear-gradient(135deg, rgba(34,211,238,0.08), rgba(167,139,250,0.08));
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-  text-align: center;
-  margin: 60px 0;
-}
-
-.cta-content h3 {
-  margin: 0 0 12px;
-  color: #fff;
-  font-size: 24px;
-}
-
-.cta-content p {
-  margin: 0 0 24px;
-  font-size: 16px;
-}
-
-.btn-large {
-  padding: 12px 24px;
-  font-size: 16px;
-}
-
-.success-animation {
-  position: relative;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto;
-}
-
-.success-ring {
-  position: absolute;
-  inset: 0;
-  border: 2px solid var(--primary);
-  border-radius: 50%;
-  opacity: 0.3;
-  animation: ripple 2s ease-out infinite;
-}
-
-.success-ring:nth-child(2) {
-  animation-delay: 0.5s;
-}
-
-.success-ring:nth-child(3) {
-  animation-delay: 1s;
-}
-
-@keyframes ripple {
-  0% { transform: scale(0.5); opacity: 0.8; }
-  100% { transform: scale(1.2); opacity: 0; }
-}
-
-/* Responsive */
-@media (min-width: 768px) {
-  .results-showcase {
+@media (max-width: 760px) {
+  .scenario-context,
+  .scenario-validation,
+  .scenario-flow {
     grid-template-columns: 1fr;
+    gap: 34px;
   }
-  
-  .case-cta {
-    grid-template-columns: 1fr auto;
-    text-align: left;
+  .scenario-context {
+    padding-bottom: 55px;
   }
-}
-
-@media (max-width: 640px) {
-  .journey-step {
-    grid-template-columns: 60px 1fr;
-    gap: 20px;
+  .scenario-flow {
+    margin-top: 30px;
   }
-  
-  .client-showcase {
+  .scenario-flow li > span {
+    margin-bottom: 16px;
+  }
+  .scenario-related {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
   }
-  
-  .client-info {
-    text-align: center;
+  .scenario-validation h2 {
+    font-size: 27px;
   }
 }
 </style>
