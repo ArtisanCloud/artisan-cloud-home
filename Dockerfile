@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --no-audit --no-fund
 COPY . .
-RUN npm run build
+RUN npm test && npm run build && npm run test:seo
 
 FROM nginx:alpine
 LABEL org.opencontainers.image.source="https://github.com/ArtisanCloud/artisan-cloud-home"
