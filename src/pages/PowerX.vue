@@ -5,6 +5,7 @@
         <span class="px-wordmark">PowerX</span>
         <div class="px-section-links">
           <a href="#px-overview">{{ c.overview }}</a>
+          <a href="#px-product-preview">{{ lang === "zh" ? "产品界面" : "Product UI" }}</a>
           <a href="#px-scenario">{{ c.scenario }}</a>
           <a href="#px-ecosystem">{{ c.ecosystem }}</a>
         </div>
@@ -54,6 +55,28 @@
           <figcaption>{{ c.diagram }}</figcaption>
         </figure>
       </div>
+    </section>
+
+    <section id="px-product-preview" class="px-wrap px-section px-product-preview">
+      <div class="px-section-heading">
+        <p class="px-eyebrow">INSIDE POWERX</p>
+        <h2>{{ lang === 'zh' ? '看看产品里，具体怎么用。' : 'See the actual workspace.' }}</h2>
+        <p class="px-lead">{{ lang === 'zh' ? '从会话到插件，再到模型配置。每张图，展示一个具体入口。' : 'Conversations, plugins and model configuration. Each screen shows a specific place to work.' }}</p>
+      </div>
+      <div class="px-screen-list">
+        <figure v-for="screen in productScreens" :key="screen.id" class="px-screen">
+          <figcaption>
+            <span class="px-small-label">{{ screen.number }}</span>
+            <h3>{{ tr(screen.title) }}</h3>
+            <p>{{ tr(screen.description) }}</p>
+          </figcaption>
+          <a :href="screen.src" target="_blank" rel="noopener noreferrer" :aria-label="tr(screen.openLabel)">
+            <img :src="screen.src" :alt="tr(screen.alt)" :width="screen.width" :height="screen.height" loading="lazy" decoding="async" />
+            <span class="px-screen-open">{{ lang === 'zh' ? '查看原图 ↗' : 'View full image ↗' }}</span>
+          </a>
+        </figure>
+      </div>
+      <p class="px-note">{{ lang === 'zh' ? '截图来自项目公开文档（2026 年 5 月），展示产品界面，不代表当前版本的首次安装状态或客户业绩；实际界面随版本与插件配置变化。' : 'Screenshots from the public project documentation (May 2026). They illustrate product UI, not a fresh installation of the current release or customer results. Screens vary by version and plugin configuration.' }}</p>
     </section>
 
     <section id="px-scenario" class="px-wrap px-story px-section">
@@ -254,6 +277,7 @@
 
 <script setup lang="ts">
 import DocsLinks from "../components/DocsLinks.vue";
+import { productScreens } from "../data/product-screens";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { ElButton } from "element-plus";
@@ -281,6 +305,15 @@ const currentStep = computed(() => scenarioSteps[activeStep.value]);
 </script>
 
 <style scoped>
+.px-screen-list { display: grid; gap: 56px; }
+.px-screen { margin: 0; min-width: 0; }
+.px-screen figcaption { max-width: 660px; margin-bottom: 20px; }
+.px-screen figcaption h3 { margin: 9px 0; }
+.px-screen figcaption p { font-size: 14px; margin: 0; }
+.px-screen > a { display: block; border: 1px solid #dfe8e4; border-radius: 16px; overflow: hidden; background: #f8faf9; box-shadow: 0 14px 40px #234a3610; }
+.px-screen img { display: block; width: 100%; height: auto; }
+.px-screen-open { display: block; text-align: right; padding: 12px 18px; font-size: 12px; border-top: 1px solid #e7ede9; }
+
 .px-page {
   --px-ink: #263c35;
   --px-muted: #64756f;
@@ -1038,10 +1071,14 @@ const currentStep = computed(() => scenarioSteps[activeStep.value]);
   }
   .px-subnav-inner {
     min-height: 58px;
-    gap: 15px;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-block: 14px;
   }
   .px-section-links {
-    gap: 18px;
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
     font-size: 11px;
   }
   .px-nav-cta {
