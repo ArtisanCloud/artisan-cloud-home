@@ -37,5 +37,9 @@ test "$(curl --max-time 10 -sS -o "$response_dir/missing.html" -w '%{http_code}'
 grep -Fq 'name="robots" content="noindex, nofollow"' "$response_dir/missing.html"
 curl --max-time 10 -fsS "$origin/ads.txt" --output /dev/null
 curl --max-time 10 -fsS "$origin/images/products/px-home.png" --output /dev/null
+for screen in agent-workspace ai-settings plugin-market; do
+  curl --max-time 10 -fsS "$origin/images/powerx-ui/$screen.png" --output "$response_dir/$screen.png"
+  cmp "public/images/powerx-ui/$screen.png" "$response_dir/$screen.png"
+done
 test "$(curl --max-time 10 -sS -o /dev/null -w '%{http_code}' "$origin/assets/ci-missing.js")" = 404
 echo 'Website container smoke checks passed.'

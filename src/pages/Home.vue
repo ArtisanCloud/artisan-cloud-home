@@ -113,8 +113,10 @@
             <span class="ac-link"
               >{{ zh ? "认识 PowerX" : "Meet PowerX" }} →</span
             >
-            <div class="feature-orb" aria-hidden="true"></div
-          ></RouterLink>
+            <figure class="home-product-screen">
+              <img src="/images/powerx-ui/plugin-market.png" :alt="zh ? 'PowerX 插件市场：查看插件卡片、启用状态与管理入口' : 'PowerX plugin marketplace showing plugin cards, enabled states and management links'" width="3366" height="1802" loading="lazy" decoding="async" />
+              <figcaption>{{ zh ? '插件市场 · 在同一入口查看与管理插件（公开文档界面，2026.05）' : 'Plugin marketplace · View and manage plugins in one place (public documentation, May 2026)' }}</figcaption>
+            </figure></RouterLink>
           <div class="home-product-stack">
             <RouterLink class="home-small-product" to="/products/crm"
               ><span class="ac-pill">{{
@@ -423,16 +425,9 @@ const process = [
   position: relative;
   z-index: 1;
 }
-.feature-orb {
-  position: absolute;
-  width: 230px;
-  height: 230px;
-  bottom: -60px;
-  right: -35px;
-  background: linear-gradient(135deg, #c0e5e8, #a4a5d5 50%, #71b1b3);
-  border-radius: 50%;
-  box-shadow: inset 15px 15px 25px #ffffffaa;
-}
+.home-product-screen { margin: 28px 0 0; }
+.home-product-screen img { display: block; width: 100%; height: auto; border: 1px solid #dce7e2; border-radius: 8px; background: white; }
+.home-product-screen figcaption { font-size: 11px; line-height: 1.7; color: #61756b; margin-top: 10px; }
 .home-product-stack {
   display: grid;
   gap: 22px;

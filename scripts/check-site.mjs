@@ -138,3 +138,21 @@ test("only approved public repository links appear in new data", () => {
       assert.match(url.pathname, /^\/ArtisanCloud\/(PowerX|PowerWeChat)(\/|$)/);
     }
 });
+
+test("product screenshots have bilingual matching copy and verified image files", async () => {
+  const { productScreens } = await loadData("src/data/product-screens.ts");
+  assert.equal(productScreens.length, 3);
+  checkTranslations(productScreens);
+  for (const screen of productScreens) {
+    const image = await readFile(new URL(`../public${screen.src}`, import.meta.url));
+    assert.equal(image.subarray(1, 4).toString(), "PNG");
+    assert.equal(image.readUInt32BE(16), screen.width);
+    assert.equal(image.readUInt32BE(20), screen.height);
+    assert.ok(screen.alt.zh && screen.openLabel.en);
+  }
+  const detail = await read("src/pages/PowerX.vue");
+  assert.match(detail, /v-for="screen in productScreens"/);
+  assert.match(detail, /2026 年 5 月/);
+  assert.match(detail, /loading="lazy"/);
+  assert.match(await read("src/pages/Home.vue"), /images\/powerx-ui\/plugin-market\.png/);
+});
